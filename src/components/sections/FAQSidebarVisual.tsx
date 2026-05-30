@@ -1,0 +1,131 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { springSoft } from "@/lib/motion";
+
+export default function FAQSidebarVisual() {
+
+  return (
+    <motion.div
+      className="relative h-full w-full"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={springSoft}
+      aria-hidden
+    >
+      <svg
+        viewBox="0 0 400 440"
+        className="h-full w-full"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Turkish title deed, property, and fee overview"
+      >
+        <defs>
+          <linearGradient id="faq-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#f8fafc" />
+            <stop offset="100%" stopColor="#eef2f7" />
+          </linearGradient>
+          <linearGradient id="faq-house" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#2d6a9f" />
+            <stop offset="100%" stopColor="#1a3c5e" />
+          </linearGradient>
+          <filter id="faq-shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="6" stdDeviation="8" floodOpacity="0.12" />
+          </filter>
+        </defs>
+
+        <rect width="400" height="440" rx="24" fill="url(#faq-bg)" />
+
+        <circle
+          cx="200"
+          cy="220"
+          r="120"
+          fill="none"
+          stroke="#1a3c5e"
+          strokeOpacity="0.06"
+          strokeWidth="1"
+          strokeDasharray="6 8"
+        />
+
+        <g filter="url(#faq-shadow)" transform="translate(72 88)">
+          <path d="M80 130 L128 70 L176 130 Z" fill="url(#faq-house)" />
+          <rect x="108" y="108" width="40" height="42" rx="4" fill="#0f2744" />
+          <rect x="118" y="88" width="20" height="22" rx="2" fill="#e85d26" />
+          <rect x="72" y="108" width="18" height="18" rx="2" fill="#f4a623" opacity="0.85" />
+          <rect x="150" y="108" width="18" height="18" rx="2" fill="#f4a623" opacity="0.85" />
+        </g>
+
+        <g filter="url(#faq-shadow)" transform="translate(208 72) rotate(6)">
+          <rect
+            width="120"
+            height="150"
+            rx="12"
+            fill="#fff"
+            stroke="#f4a623"
+            strokeWidth="2"
+          />
+          <text
+            x="28"
+            y="36"
+            fill="#1a3c5e"
+            fontSize="14"
+            fontWeight="700"
+            fontFamily="Georgia, serif"
+          >
+            TAPU
+          </text>
+          <rect x="20" y="48" width="80" height="6" rx="2" fill="#e2e8f0" />
+          <rect x="20" y="60" width="72" height="6" rx="2" fill="#e2e8f0" />
+          <rect
+            x="20"
+            y="78"
+            width="80"
+            height="32"
+            rx="8"
+            fill="#fff7ed"
+            stroke="#e85d26"
+            strokeWidth="1.5"
+          />
+          <text x="30" y="98" fill="#e85d26" fontSize="11" fontWeight="600">
+            FAQ &amp; Fees
+          </text>
+          <circle cx="92" cy="28" r="14" fill="#f4a623" />
+          <text x="87" y="33" fill="#1a3c5e" fontSize="14" fontWeight="700">
+            ?
+          </text>
+        </g>
+
+        <g transform="translate(48 280)">
+          <rect width="140" height="56" rx="12" fill="#fff" stroke="#e2e8f0" />
+          <text x="16" y="24" fill="#4a5568" fontSize="10" fontWeight="600">
+            Official rate
+          </text>
+          <text
+            x="16"
+            y="44"
+            fill="#e85d26"
+            fontSize="20"
+            fontWeight="700"
+            fontFamily="Georgia, serif"
+          >
+            4%
+          </text>
+          <rect x="88" y="16" width="40" height="24" rx="6" fill="#eff6ff" />
+          <text x="96" y="32" fill="#2d6a9f" fontSize="10" fontWeight="700">
+            2+2
+          </text>
+        </g>
+
+        <g transform="translate(212 300)">
+          <rect width="140" height="56" rx="12" fill="#1a3c5e" />
+          <text x="16" y="24" fill="#94a3b8" fontSize="10">
+            Land Registry
+          </text>
+          <text x="16" y="42" fill="#f4a623" fontSize="11" fontWeight="600">
+            Tapu Office
+          </text>
+        </g>
+      </svg>
+    </motion.div>
+  );
+}

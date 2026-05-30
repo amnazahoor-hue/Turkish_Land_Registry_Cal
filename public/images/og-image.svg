@@ -1,0 +1,19 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TapuCalc Title Deed Fee Calculator">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a3c5e"/>
+      <stop offset="50%" stop-color="#2d6a9f"/>
+      <stop offset="100%" stop-color="#1a3c5e"/>
+    </linearGradient>
+    <linearGradient id="icon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4a623"/>
+      <stop offset="100%" stop-color="#e85d26"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="80" y="200" width="88" height="88" rx="18" fill="url(#icon)"/>
+  <path d="M108 268 L124 220 L140 268 Z" fill="#1a3c5e"/>
+  <text x="190" y="255" fill="#ffffff" font-family="Georgia, serif" font-size="72" font-weight="700">TapuCalc</text>
+  <text x="80" y="360" fill="#ffffff" font-family="system-ui, sans-serif" font-size="44" font-weight="600">Title Deed Fee Calculator</text>
+  <text x="80" y="420" fill="#f4a623" font-family="system-ui, sans-serif" font-size="28" font-weight="600">Official 4% rate · Buyer 2% + Seller 2% · Free</text>
+</svg>
