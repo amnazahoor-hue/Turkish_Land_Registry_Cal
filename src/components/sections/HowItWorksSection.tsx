@@ -1,34 +1,15 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import {
-  Home,
-  Calculator,
-  BarChart3,
-  CheckCircle2,
-  Sparkles,
-  type LucideIcon,
-} from "lucide-react";
+import { Calculator } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { howItWorksSteps } from "@/lib/constants";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
-import type { HowItWorksStep } from "@/types";
-import { springBouncy, springSoft } from "@/lib/motion";
-import { cn } from "@/lib/cn";
 
-const iconMap: Record<HowItWorksStep["iconName"], LucideIcon> = {
-  home: Home,
-  calculator: Calculator,
-  chart: BarChart3,
-  check: CheckCircle2,
-};
+const formulas = [
+  "Alıcının payı = Beyan edilen mülk değeri × %2",
+  "Satıcının payı = Beyan edilen mülk değeri × %2",
+  "Toplam tapu kayıt ücreti = Beyan edilen mülk değeri × %4",
+];
 
 export default function HowItWorksSection() {
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const timelineInView = useInView(timelineRef, { once: true, margin: "-80px" });
-  const reducedMotion = useReducedMotion();
-
   return (
     <section
       id="how-it-works"
@@ -44,156 +25,92 @@ export default function HowItWorksSection() {
         aria-hidden
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 md:px-8">
+      <div className="page-container relative">
         <ScrollReveal>
-          <div className="section-heading mb-8 md:mb-10">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm">
-              <Sparkles size={14} aria-hidden />
-              Simple process
-            </span>
-            <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
-              How It Works
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-blue-100/90 md:text-lg">
-              Calculate your title deed fees in four clear steps — fast, free, and
-              based on the official rate.
-            </p>
-            <div
-              className="mx-auto mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-transparent via-accent to-transparent"
-              aria-hidden
-            />
-          </div>
-        </ScrollReveal>
+          <article className="mx-auto max-w-3xl">
+            <div className="section-heading mb-8 md:mb-10">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm">
+                <Calculator size={14} aria-hidden />
+                Hesaplama rehberi
+              </span>
+              <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
+                Tapu kayıt Ücreti Nasıl Hesaplanır?
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-blue-100/90 md:text-lg">
+                Hesaplama basit, belediye vergi oranlarının uygulanmasına benzer.
+                Zor olan kısım hesaplama değil, kanunun hangi değeri esas aldığını
+                bilmektir.
+              </p>
+              <div
+                className="mx-auto mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-transparent via-accent to-transparent"
+                aria-hidden
+              />
+            </div>
 
-        <div ref={timelineRef} className="relative">
-          <div
-            className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[2.75rem] hidden lg:block"
-            aria-hidden
-          >
-            <motion.div
-              className="h-px origin-left bg-gradient-to-r from-white/0 via-accent/70 to-white/0"
-              initial={{ scaleX: 0 }}
-              animate={
-                timelineInView && !reducedMotion ? { scaleX: 1 } : { scaleX: 1 }
-              }
-              transition={{ duration: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
-            />
-          </div>
+            <div className="space-y-10">
+              <div className="space-y-4">
+                <h3 className="font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  Güncel Tapu Sicil Müdürlüğü Ücreti Oranı
+                </h3>
+                <p className="text-base leading-relaxed text-blue-100/85 md:text-lg">
+                  492 Sayılı Harçlar Kanunu, Sayılı Tarife No. (4), tapu masrafı
+                  yüzde kaç standart bir satış için beyan edilen mülk değerinin
+                  %2&apos;ü olarak belirlenmiştir. Bu oran iki taraf arasında
+                  paylaştırılır. Dolayısıyla, mülkün türü ne olursa olsun ister
+                  daire, ister arsa, arazi veya villa her iki taraf da %2 oranında
+                  harç öder.
+                </p>
+              </div>
 
-          <ol className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-5">
-            {howItWorksSteps.map((step, index) => {
-              const Icon = iconMap[step.iconName];
-              const isLast = index === howItWorksSteps.length - 1;
-
-              return (
-                <ScrollReveal key={step.number} delay={index * 0.1}>
-                  <li className="relative h-full list-none">
-                    {index < howItWorksSteps.length - 1 && (
-                      <span
-                        className="absolute -right-3 top-11 z-20 hidden text-accent/50 lg:block lg:-right-2"
-                        aria-hidden
-                      >
-                        <motion.span
-                          initial={{ opacity: 0, x: -4 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.4 + index * 0.15 }}
-                        >
-                          →
-                        </motion.span>
-                      </span>
-                    )}
-
-                    <motion.article
-                      className={cn(
-                        "group relative flex h-full flex-col rounded-2xl border p-6 transition-colors md:p-7",
-                        isLast
-                          ? "border-accent/40 bg-gradient-to-b from-white/16 to-white/8 shadow-lg shadow-black/20 ring-1 ring-accent/25"
-                          : "border-white/10 bg-gradient-to-b from-white/12 to-white/[0.04] hover:border-white/20 hover:from-white/14"
-                      )}
-                      whileHover={
-                        reducedMotion
-                          ? {}
-                          : {
-                              y: -6,
-                              boxShadow: isLast
-                                ? "0 24px 48px rgba(0,0,0,0.28)"
-                                : "0 20px 40px rgba(0,0,0,0.18)",
-                            }
-                      }
-                      transition={springSoft}
+              <div className="space-y-4">
+                <h3 className="font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  Kullanılan Formül Tapu Kayıt Ücretlerinin Hesaplanması.
+                </h3>
+                <p className="text-base leading-relaxed text-blue-100/85 md:text-lg">
+                  Hesap makinemiz, 57. madde uyarınca tüm hesaplamaları otomatik
+                  olarak yapar. Formülün kendisi basittir:
+                </p>
+                <ul className="space-y-2 rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6">
+                  {formulas.map((formula) => (
+                    <li
+                      key={formula}
+                      className="font-mono text-sm leading-relaxed text-white/90 md:text-base"
                     >
-                      <div className="relative z-10 flex flex-col items-center text-center lg:items-stretch lg:text-left">
-                        <div className="relative mb-5 flex w-full justify-center lg:justify-start">
-                          <motion.div
-                            className="relative"
-                            initial={{ scale: 0.6, opacity: 0 }}
-                            whileInView={{ scale: 1, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ ...springBouncy, delay: index * 0.08 }}
-                          >
-                            <span
-                              className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-accent/40 to-btn/30 opacity-60 blur-md transition-opacity group-hover:opacity-90"
-                              aria-hidden
-                            />
-                            <div
-                              className={cn(
-                                "relative flex h-14 w-14 items-center justify-center rounded-2xl border shadow-inner",
-                                isLast
-                                  ? "border-accent/50 bg-gradient-to-br from-accent/25 to-btn/20"
-                                  : "border-white/20 bg-white/10"
-                              )}
-                            >
-                              <Icon
-                                className={cn(
-                                  "shrink-0",
-                                  isLast ? "text-accent" : "text-btn"
-                                )}
-                                size={28}
-                                strokeWidth={1.75}
-                                aria-hidden
-                              />
-                            </div>
-                            <span
-                              className={cn(
-                                "absolute -right-2 -top-2 flex h-7 min-w-[1.75rem] items-center justify-center rounded-lg px-1.5 font-mono text-[11px] font-bold shadow-md",
-                                isLast
-                                  ? "bg-accent text-primary"
-                                  : "border border-white/15 bg-primary text-accent"
-                              )}
-                            >
-                              {step.number}
-                            </span>
-                          </motion.div>
+                      {formula}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-                        </div>
+              <div className="space-y-4">
+                <h3 className="font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  Minimum Gayrimenkul Değeri Gereksinimleri
+                </h3>
+                <p className="text-base leading-relaxed text-blue-100/85 md:text-lg">
+                  Madde 63 uyarınca, beyan edilen değer, hiçbir zaman mülkün
+                  kayıtlı vergi matrahının (asgari değerinin) altında olamaz.
+                  Vergi makamları bu sorgulama sırasında bunu tespit ederse,
+                  beyanname reddedilebilir veya cezai yaptırımlarla düzeltilebilir.
+                  Ayrıca, döner sermaye fonu ücreti de uygulanmaktadır. Tapu
+                  senedi her yıl alınan bu küçük ücret, asgari hizmet bedelinin
+                  her zaman tahsil edilmesini sağlamaya yardımcı olur. Çoğu
+                  durumda, standart hesaplamaya dahildir.
+                </p>
+              </div>
 
-                        <h3 className="mb-2 text-lg font-semibold tracking-tight text-white">
-                          {step.title}
-                        </h3>
-                        <p className="text-sm leading-relaxed text-white/65 md:text-[15px]">
-                          {step.description}
-                        </p>
-
-                        {isLast && (
-                          <span className="mt-4 inline-flex items-center justify-center gap-1.5 self-center rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold text-accent lg:self-start">
-                            <CheckCircle2 size={14} aria-hidden />
-                            Ready to plan
-                          </span>
-                        )}
-                      </div>
-                    </motion.article>
-                  </li>
-                </ScrollReveal>
-              );
-            })}
-          </ol>
-        </div>
-
-        <ScrollReveal delay={0.35}>
-          <p className="mx-auto mt-10 max-w-xl text-center text-sm text-white/50">
-            No sign-up required · Results update instantly as you type
-          </p>
+              <div className="space-y-4">
+                <h3 className="font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  Tapu Devrinin Ücret Hesaplamasını Nasıl Etkilediği
+                </h3>
+                <p className="text-base leading-relaxed text-blue-100/85 md:text-lg">
+                  Bu, işlemin türüne bağlıdır. Normal bir satışta toplam %4 harç
+                  uygulanır; binde 68,31 (yaklaşık %6,8) ve harcı alıcı öder.
+                  Hesaplamadan önce satış türünü bilmeniz gerekir çünkü her satış
+                  türü farklı bir hesaplama yöntemi kullanır.
+                </p>
+              </div>
+            </div>
+          </article>
         </ScrollReveal>
       </div>
 

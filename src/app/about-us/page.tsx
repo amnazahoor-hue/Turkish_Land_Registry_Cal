@@ -3,15 +3,15 @@ import { AboutContent } from "@/lib/legal-content";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "About Us",
+  title: "Hakkımızda",
   description:
-    "About TapuCalc — free title deed fee calculator for property transfers in Turkey.",
+    "TapuCalc hakkında — Türkiye'de mülk devirleri için ücretsiz tapu harcı hesaplayıcısı.",
   path: "/about-us",
 });
 
 export default function AboutUsPage() {
   return (
-    <LegalPageLayout title="About Us">
+    <LegalPageLayout title="Hakkımızda">
       <AboutContent />
     </LegalPageLayout>
   );

@@ -2,47 +2,50 @@ export function DisclaimerContent() {
   return (
     <>
       <p>
-        This website and title deed fee calculator are provided for informational
-        purposes only. TapuCalc does not guarantee that results match records at
-        the land registry or Revenue Administration. Tax rates and rules may change;
-        always confirm final amounts with official authorities before paying.
+        Bu web sitesi ve tapu harcı hesaplayıcısı yalnızca bilgilendirme amaçlı
+        sunulmaktadır. TapuCalc, sonuçların tapu sicili veya Gelir İdaresi
+        kayıtlarıyla birebir örtüşeceğini garanti etmez. Vergi oranları ve
+        kurallar değişebilir; ödeme yapmadan önce nihai tutarları her zaman
+        resmi makamlardan teyit edin.
       </p>
-      <h2>Limitation of Liability</h2>
+      <h2>Sorumluluk Sınırlaması</h2>
       <p>
-        Information on this site must not be your sole basis for property, investment,
-        or legal decisions. The tool assumes a 4% total fee (2% buyer + 2% seller) on
-        the declared sale price. Exceptions, discounts, valuation disputes, or different
-        transaction types may apply and are not covered here.
+        Bu sitedeki bilgiler, mülk, yatırım veya hukuki kararlarınız için tek
+        dayanak olmamalıdır. Araç, beyan edilen satış bedeli üzerinden toplam
+        %4 harç (%2 alıcı + %2 satıcı) varsayımına dayanır. İstisnalar, indirimler,
+        değerleme uyuşmazlıkları veya farklı işlem türleri burada kapsanmayabilir.
       </p>
-      <h2>No Government Affiliation</h2>
+      <h2>Resmi Kurum Bağı Yoktur</h2>
       <p>
-        TapuCalc is not affiliated with, endorsed by, or acting on behalf of the Turkish
-        Land Registry (TKGM), Revenue Administration (GİB), or any public body. Appointments,
-        documents, and payments must be completed through official channels.
+        TapuCalc; Tapu ve Kadastro Genel Müdürlüğü (TKGM), Gelir İdaresi Başkanlığı
+        (GİB) veya herhangi bir kamu kurumu ile bağlantılı, onaylı veya onların
+        adına hareket eden bir hizmet değildir. Randevu, belge ve ödemeler resmi
+        kanallar üzerinden tamamlanmalıdır.
       </p>
-      <h2>Accuracy and Updates</h2>
+      <h2>Doğruluk ve Güncellemeler</h2>
       <p>
-        We strive to keep content current, but errors, delays, or regulatory changes may
-        occur. You are responsible for verifying entered amounts and whether results fit
-        your transaction. TapuCalc is not liable for differences caused by incorrect input
-        or outdated rates.
+        İçeriği güncel tutmaya çalışsak da hatalar, gecikmeler veya mevzuat
+        değişiklikleri olabilir. Girilen tutarları ve sonuçların işleminize
+        uygunluğunu doğrulamak sizin sorumluluğunuzdadır. TapuCalc, hatalı giriş
+        veya güncel olmayan oranlardan kaynaklanan farklardan sorumlu tutulamaz.
       </p>
-      <h2>Third-Party Links</h2>
+      <h2>Üçüncü Taraf Bağlantıları</h2>
       <p>
-        External links, if present, are not controlled by us. Their content and privacy
-        practices are their own responsibility. Nothing on this site constitutes professional
-        legal, tax, or financial advice.
+        Varsa dış bağlantılar bizim kontrolümüzde değildir. İçerikleri ve gizlilik
+        uygulamaları kendi sorumluluklarındadır. Bu sitedeki hiçbir şey profesyonel
+        hukuk, vergi veya finansal danışmanlık teşkil etmez.
       </p>
-      <h2>Other Costs</h2>
+      <h2>Diğer Maliyetler</h2>
       <p>
-        Title deed fees are separate from DASK insurance, property tax, notary costs,
-        agency fees, and legal services. Budget for all transfer costs when planning
-        your purchase or sale.
+        Tapu harcı; DASK sigortası, emlak vergisi, noter masrafları, emlakçı
+        ücretleri ve hukuki hizmetlerden ayrıdır. Alım veya satım planlarken tüm
+        devir maliyetlerini bütçenize dahil edin.
       </p>
-      <h2>Contact</h2>
+      <h2>İletişim</h2>
       <p>
-        Questions about this disclaimer may be sent via our contact page. Material
-        updates will be posted on this page with a revised effective date when applicable.
+        Bu feragatname hakkındaki sorularınızı iletişim sayfamız üzerinden
+        iletebilirsiniz. Önemli güncellemeler, uygun olduğunda bu sayfada
+        yayımlanır.
       </p>
     </>
   );
@@ -52,54 +55,57 @@ export function PrivacyPolicyContent() {
   return (
     <>
       <p>
-        TapuCalc respects your privacy. This policy explains what data we collect when
-        you use our website or contact form, how we use it, and your rights. We aim to
-        align with applicable data protection principles including Turkey&apos;s KVKK where
-        relevant.
+        TapuCalc gizliliğinize saygı duyar. Bu politika, web sitemizi veya iletişim
+        formunu kullandığınızda hangi verileri topladığımızı, nasıl kullandığımızı
+        ve haklarınızı açıklar. Türkiye&apos;deki KVKK dahil geçerli veri koruma
+        ilkelerine uyum hedeflenir.
       </p>
-      <h2>Data Controller</h2>
+      <h2>Veri Sorumlusu</h2>
       <p>
-        TapuCalc is the data controller for personal data submitted through this site.
-        Contact: info@tapucalc.com or the contact form on this website.
+        TapuCalc, bu site üzerinden iletilen kişisel veriler için veri sorumlusudur.
+        İletişim: info@tapucalc.com veya web sitemizdeki iletişim formu.
       </p>
-      <h2>What We Collect</h2>
+      <h2>Topladığımız Veriler</h2>
       <p>
-        The calculator runs in your browser; sale amounts you enter are not stored on
-        our servers. If you contact us, we receive your name, email, subject, and message.
-        We may also process technical logs (IP address, browser type, visit time) for
-        security and analytics. Cookies may be used as described below.
+        Hesaplayıcı tarayıcınızda çalışır; girdiğiniz satış tutarları sunucularımızda
+        saklanmaz. Bizimle iletişime geçerseniz ad, e-posta, konu ve mesajınızı
+        alırız. Güvenlik ve analiz için teknik kayıtlar (IP adresi, tarayıcı türü,
+        ziyaret zamanı) işlenebilir. Çerezler aşağıda açıklandığı şekilde kullanılabilir.
       </p>
-      <h2>How We Use Data</h2>
+      <h2>Verilerin Kullanımı</h2>
       <p>
-        Data is used to respond to inquiries, maintain security, improve the service,
-        and meet legal obligations. Marketing emails are sent only with your consent.
+        Veriler; taleplere yanıt vermek, güvenliği sağlamak, hizmeti geliştirmek ve
+        yasal yükümlülükleri yerine getirmek için kullanılır. Pazarlama e-postaları
+        yalnızca onayınızla gönderilir.
       </p>
-      <h2>Cookies and Analytics</h2>
+      <h2>Çerezler ve Analitik</h2>
       <p>
-        We may use analytics tools (e.g. Google Analytics or Microsoft Clarity) that set
-        cookies. You can manage cookies in your browser settings; some features may be
-        limited if cookies are disabled.
+        Google Analytics veya Microsoft Clarity gibi analiz araçları çerez
+        kullanabilir. Tarayıcı ayarlarından çerezleri yönetebilirsiniz; devre dışı
+        bırakıldığında bazı özellikler sınırlanabilir.
       </p>
-      <h2>Sharing and Retention</h2>
+      <h2>Paylaşım ve Saklama</h2>
       <p>
-        Data may be shared with hosting or email providers only as needed to operate the
-        service. Contact records are kept for a reasonable period after your request is
-        handled, unless longer retention is required by law.
+        Veriler yalnızca hizmeti işletmek için gerekli hosting veya e-posta
+        sağlayıcılarıyla paylaşılabilir. İletişim kayıtları, talebiniz
+        sonuçlandıktan sonra makul bir süre saklanır; yasal zorunluluklar daha
+        uzun saklamayı gerektirebilir.
       </p>
-      <h2>Your Rights</h2>
+      <h2>Haklarınız</h2>
       <p>
-        You may request access, correction, deletion, or restriction of your personal data
-        by emailing info@tapucalc.com. We will respond within applicable legal timeframes.
+        info@tapucalc.com adresine yazarak kişisel verilerinize erişim, düzeltme,
+        silme veya işlemenin kısıtlanmasını talep edebilirsiniz. Yasal süreler
+        içinde yanıt verilir.
       </p>
-      <h2>Security</h2>
+      <h2>Güvenlik</h2>
       <p>
-        We use HTTPS and reasonable technical measures to protect data. No online
-        transmission is completely secure; use the site at your own risk.
+        HTTPS ve makul teknik önlemler kullanıyoruz. Hiçbir çevrimiçi iletim tamamen
+        güvenli değildir; siteyi kendi riskinizle kullanırsınız.
       </p>
-      <h2>Policy Changes</h2>
+      <h2>Politika Değişiklikleri</h2>
       <p>
-        We may update this policy from time to time. The current version is the one
-        published on this page. Please review it periodically.
+        Bu politikayı zaman zaman güncelleyebiliriz. Geçerli sürüm bu sayfada
+        yayımlanan metindir. Lütfen düzenli olarak gözden geçirin.
       </p>
     </>
   );
@@ -109,46 +115,47 @@ export function TermsContent() {
   return (
     <>
       <p>
-        By using the TapuCalc website you agree to these Terms & Conditions. If you do
-        not agree, please do not use the site.
+        TapuCalc web sitesini kullanarak bu Kullanım Şartlarını kabul etmiş
+        sayılırsınız. Kabul etmiyorsanız lütfen siteyi kullanmayın.
       </p>
-      <h2>Service Description</h2>
+      <h2>Hizmet Tanımı</h2>
       <p>
-        TapuCalc provides a free online tool to estimate title deed transfer fees in
-        Turkey. We do not process payments, registry applications, or legal representation.
+        TapuCalc, Türkiye&apos;de tapu devir harçlarını tahmin etmek için ücretsiz
+        çevrimiçi bir araç sunar. Ödeme işlemi, tapu başvurusu veya hukuki temsil
+        sağlamayız.
       </p>
-      <h2>User Responsibilities</h2>
+      <h2>Kullanıcı Yükümlülükleri</h2>
       <p>
-        You must provide accurate inputs, use the site lawfully, and not attempt to
-        disrupt or overload our systems. Abusive messages via the contact form may be
-        blocked.
+        Doğru bilgi girmeli, siteyi yasalara uygun kullanmalı ve sistemlerimizi
+        aksatmayı veya aşırı yüklemeyi denememelisiniz. İletişim formu üzerinden
+        kötüye kullanım mesajları engellenebilir.
       </p>
-      <h2>Intellectual Property</h2>
+      <h2>Fikri Mülkiyet</h2>
       <p>
-        Text, design, logos, and software on this site belong to TapuCalc unless otherwise
-        stated. Unauthorized copying or commercial reuse is prohibited. Short quotations
-        with attribution may be acceptable for non-commercial reference.
+        Sitedeki metin, tasarım, logolar ve yazılım aksi belirtilmedikçe TapuCalc&apos;a
+        aittir. İzinsiz kopyalama veya ticari yeniden kullanım yasaktır. Ticari olmayan
+        referans için kısa alıntılar kaynak gösterilerek kabul edilebilir.
       </p>
-      <h2>Changes and Availability</h2>
+      <h2>Değişiklikler ve Erişilebilirlik</h2>
       <p>
-        We may modify or discontinue features without notice. We are not liable for
-        downtime or calculation changes resulting from law updates.
+        Özellikleri önceden haber vermeksizin değiştirebilir veya sonlandırabiliriz.
+        Kesinti veya mevzuat değişikliğinden kaynaklanan hesaplama farklarından
+        sorumlu değiliz.
       </p>
-      <h2>Disclaimer</h2>
+      <h2>Feragatname</h2>
       <p>
-        Results are estimates only. See our Disclaimer page for full limitation of
-        liability terms.
+        Sonuçlar yalnızca tahmindir. Tam sorumluluk sınırlaması için Feragatname
+        sayfamıza bakın.
       </p>
-      <h2>Governing Law</h2>
+      <h2>Uygulanacak Hukuk</h2>
       <p>
-        These terms are governed by the laws of the Republic of Turkey. Disputes shall
-        be subject to the courts of Istanbul unless mandatory consumer rules provide
-        otherwise.
+        Bu şartlar Türkiye Cumhuriyeti kanunlarına tabidir. Uyuşmazlıklarda, zorunlu
+        tüketici kuralları aksini öngörmedikçe İstanbul mahkemeleri yetkilidir.
       </p>
-      <h2>Contact</h2>
+      <h2>İletişim</h2>
       <p>
-        For questions about these terms, use our contact page. Updated terms take effect
-        when published on this site.
+        Bu şartlarla ilgili sorular için iletişim sayfamızı kullanın. Güncellenmiş
+        şartlar sitede yayımlandığında yürürlüğe girer.
       </p>
     </>
   );
@@ -158,42 +165,75 @@ export function AboutContent() {
   return (
     <>
       <p>
-        TapuCalc is an independent digital tool built to make title deed transfer fees
-        in Turkey easier to understand. Whether you are buying your first home, selling
-        property, or advising clients, knowing the buyer and seller shares upfront helps
-        you plan with confidence.
+        TapuCalc, Türkiye&apos;de tapu devir harçlarını anlamayı kolaylaştırmak için
+        geliştirilmiş bağımsız bir dijital araçtır. İlk evinizi alıyor, mülk
+        satıyor veya danışmanlık veriyor olun; alıcı ve satıcı paylarını önceden
+        bilmek bütçe planlamanıza güven katar.
       </p>
-      <h2>Why We Built This</h2>
+      <h2>Neden Geliştirdik</h2>
       <p>
-        Before a land registry appointment, both parties need to pay their share of the
-        fee through the bank. The math is simple (2% + 2%), but sale price formatting,
-        extra costs, and rule changes can cause confusion. TapuCalc shows an instant
-        breakdown using the standard 4% total rate so you can budget before you go.
+        Tapu randevusundan önce her iki taraf da banka üzerinden harç payını öder.
+        Hesaplama basittir (%2 + %2), ancak fiyat formatı, ek masraflar ve kural
+        değişiklikleri kafa karıştırabilir. TapuCalc, standart %4 toplam oranla
+        anında dağılım gösterir; randevuya gitmeden önce bütçenizi planlayın.
       </p>
-      <h2>Who It Is For</h2>
+      <h2>Kimler İçin</h2>
       <p>
-        Home buyers and sellers, real estate agents, and legal professionals use the
-        calculator for quick estimates. Foreign buyers generally face the same buyer
-        rate; special cases should be confirmed with the local land registry office.
+        Ev alıcıları ve satıcıları, emlak danışmanları ve hukuk profesyonelleri
+        hızlı tahmin için aracı kullanır. Yabancı alıcılar genelde aynı alıcı
+        oranına tabidir; özel durumlar için yerel tapu müdürlüğünü teyit edin.
       </p>
-      <h2>Trust and Official Sources</h2>
+      <h2>Güven ve Resmi Kaynaklar</h2>
       <p>
-        Our content reflects publicly available guidance on Turkish land registry
-        processes and transfer tax rates. TapuCalc is not a government service. Always
-        treat the land registry and official receipts as the final authority. Verify
-        rates via gib.gov.tr and tkgm.gov.tr before payment.
+        İçeriğimiz, Türkiye tapu süreçleri ve devir vergisi oranlarına ilişkin
+        kamuya açık bilgilere dayanır. TapuCalc bir devlet hizmeti değildir. Nihai
+        yetki her zaman tapu sicili ve resmi makbuzlardadır. Ödeme öncesi gib.gov.tr
+        ve tkgm.gov.tr üzerinden oranları doğrulayın.
       </p>
-      <h2>Our Approach</h2>
+      <h2>Yaklaşımımız</h2>
       <p>
-        We focus on clear English, fast loading, mobile-friendly design, and accessible
-        layouts. Feedback from users shapes improvements to the calculator and educational
-        content on this site.
+        Açık Türkçe, hızlı yükleme, mobil uyumlu tasarım ve erişilebilir düzen
+        önceliğimizdir. Kullanıcı geri bildirimleri hesaplayıcı ve eğitim
+        içeriklerinin gelişimini şekillendirir.
       </p>
-      <h2>What Is Next</h2>
+      <h2>Sırada Ne Var</h2>
       <p>
-        We plan expanded guides on DASK, property tax, and full transfer checklists.
-        Our goal is to remain a trusted reference for property transactions in Turkey.
-        Reach out via the contact page with suggestions — we read every message.
+        DASK, emlak vergisi ve tam devir kontrol listeleri için genişletilmiş
+        rehberler planlıyoruz. Türkiye&apos;de mülk işlemleri için güvenilir bir
+        referans olmayı sürdürmeyi hedefliyoruz. Önerileriniz için iletişim
+        sayfasından yazın — her mesajı okuyoruz.
+      </p>
+    </>
+  );
+}
+
+export function AuthorContent() {
+  return (
+    <>
+      <p>
+        Merhaba, ben Selin Tekvatan. TapuCalc&apos;un içerik ve hesaplama
+        rehberlerini hazırlayan kıdemli emlak hukuku editörüyüm. On yılı aşkın
+        süredir konut alım-satım süreçlerinde tapu harçları, beyan değeri ve
+        devir maliyetleri üzerine çalışıyorum.
+      </p>
+      <h2>Uzmanlık Alanım</h2>
+      <p>
+        492 Sayılı Harçlar Kanunu kapsamındaki tapu işlemleri, döner sermaye
+        ücretleri ve alıcı-satıcı paylaşımı konularında pratik rehberler
+        yazıyorum. Amacım, karmaşık mevzuatı herkesin anlayabileceği net
+        örneklerle açıklamaktır.
+      </p>
+      <h2>İçerik Yaklaşımı</h2>
+      <p>
+        Her makale ve hesaplama notu, güncel mevzuat ve resmi kaynaklarla
+        çapraz kontrol edilir. TapuCalc bir devlet kurumu değildir; sunduğumuz
+        bilgiler bilgilendirme amaçlıdır ve nihai kararlar için tapu müdürlüğü
+        ile GİB kayıtları esas alınmalıdır.
+      </p>
+      <h2>İletişim</h2>
+      <p>
+        İçerik önerileri veya düzeltme talepleri için{" "}
+        <a href="/contact">iletişim sayfamızı</a> kullanabilirsiniz.
       </p>
     </>
   );

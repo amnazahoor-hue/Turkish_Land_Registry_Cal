@@ -8,12 +8,24 @@ import type {
 
 export const SITE_NAME = "TapuCalc";
 
+export const AUTHOR_NAME = "Selin Tekvatan";
+
 export const navLinks: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "About", href: "/about-us" },
-  { label: "Contact", href: "/contact" },
+  { label: "Ana Sayfa", href: "/" },
+  { label: "Nasıl Hesaplanır", href: "/#how-it-works" },
+  { label: "SSS", href: "/#faq" },
+];
+
+export const legalLinks: NavLink[] = [
+  { label: "Feragatname", href: "/disclaimer" },
+  { label: "Gizlilik Politikası", href: "/privacy-policy" },
+  { label: "Kullanım Şartları", href: "/terms-and-conditions" },
+];
+
+export const companyLinks: NavLink[] = [
+  { label: "Hakkımızda", href: "/about-us" },
+  { label: "İletişim", href: "/contact" },
+  { label: "Yazar", href: "/author" },
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -33,23 +45,25 @@ export const socialLinks: SocialLink[] = [
     href: "https://x.com/",
   },
   {
-    brand: "linkedin",
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    brand: "pinterest",
+    label: "Pinterest",
+    href: "https://www.pinterest.com/",
+  },
+  {
+    brand: "reddit",
+    label: "Reddit",
+    href: "https://www.reddit.com/",
+  },
+  {
+    brand: "quora",
+    label: "Quora",
+    href: "https://www.quora.com/",
   },
   {
     brand: "youtube",
     label: "YouTube",
     href: "https://www.youtube.com/",
   },
-];
-
-export const legalLinks: NavLink[] = [
-  { label: "Disclaimer", href: "/disclaimer" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms & Conditions", href: "/terms-and-conditions" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const howItWorksSteps: HowItWorksStep[] = [
@@ -126,33 +140,38 @@ export const infoCards: InfoCard[] = [
 
 export const faqs: FAQItem[] = [
   {
-    q: "What is the title deed fee in Turkey?",
-    a: "It is an official tax on property sales. The total is 4% of the sale price: 2% paid by the buyer and 2% by the seller.",
+    q: "Tapu kayıt ücreti nedir? 2026'daki oran ne olacak?",
+    a: "Tapu sicilinde beyan edilen standart değer %4'tür. Bu oran %2 alıcı ve %2 satıcı olarak ikiye ayrılır. Mevcut koşullar altında tapu harcı 2026 oranı, 492 sayılı kanun kapsamında yayınlanmıştır.",
     iconName: "receipt",
   },
   {
-    q: "Does the buyer or seller pay?",
-    a: "Both pay separately. The buyer pays 2% and the seller pays 2% of the declared sale price.",
-    iconName: "users",
-  },
-  {
-    q: "How is it calculated?",
-    a: "Sale price × 0.02 = buyer fee. Sale price × 0.02 = seller fee. Total = sale price × 0.04.",
+    q: "Döner sermaye fonu ücreti nedir?",
+    a: "Döner sermaye ödemesi, Tapu Sicil Müdürlüğü (TKGM) tarafından alınan ayrı bir sabit hizmet ücretidir. Ana kayıt ücretine ek olarak alınır. Tapu sicili ve kadastro müdürlüklerinin işletme giderlerini karşılamak için kullanılır. İllere göre değişiklik gösterir.",
     iconName: "calculator",
   },
   {
-    q: "Can the fee be negotiated?",
-    a: "No. It is a statutory state tax fixed by law and cannot be changed or negotiated.",
+    q: "Bağış yoluyla tapu devrinin ücreti ne kadardır?",
+    a: "Hediye yoluyla devredilen tapu senedi tamamen farklıdır. Değerlendirilmiş mülk değerinin binde 68,31'idir. Alıcı, bu bedeli iki taraf arasında bölmek yerine kendisi ödemekle yükümlüdür.",
+    iconName: "users",
+  },
+  {
+    q: "Ortak mülkiyetin devri için ücret nasıl hesaplanır?",
+    a: "Ortak mülkiyet devrinde hesaplanan ücret, devredilen payın büyüklüğüne bağlıdır. Mülkün tam değeri değildir. Her tarafın payı, kayıtlı yüzdesine göre değerlendirilir.",
     iconName: "scale",
   },
   {
-    q: "What documents are needed for transfer?",
-    a: "ID/passport, mandatory earthquake insurance (DASK), proof of sale price, and fee payment receipts are typically required.",
+    q: "Aile içi mülk transferlerinde indirim var mı?",
+    a: "Hayır, gayrimenkulde özel bir indirim yok. Aile içi devirde akrabalar arasında yapılan satışlar, diğer satışlarla aynı şekilde vergilendirilir. Daha düşük oran, yalnızca transferin bağış olarak değerlendirilmesi ve Türk makamları tarafından titizlikle doğrulanması durumunda uygulanır.",
     iconName: "files",
   },
   {
-    q: "Is the rate different for foreigners?",
-    a: "The buyer rate is generally the same (2%). Some special cases may apply—confirm with the land registry office.",
+    q: "Tapu ücreti emlak vergisi değerinden daha düşük mü olabilir?",
+    a: "Hayır, hesaplama için beyan edilen değer kullanılır. Bu değer, alıcı ve satıcının özel olarak anlaştığı fiyattan bağımsız olarak, mülkün resmi vergi değerinin altına asla düşürülmemelidir.",
+    iconName: "scale",
+  },
+  {
+    q: "Tapu vergisi kredi kartıyla ödenebilir mi?",
+    a: "Evet, GİB kredi kartı ödemesini kabul ediyor. Hemen hemen her bankadan. Ayrıca, birçok Tapu Sicil Müdürlüğü ofisinde de kart ödeme terminalleri bulunmaktadır.",
     iconName: "globe",
   },
 ];

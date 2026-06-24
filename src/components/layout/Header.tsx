@@ -101,7 +101,7 @@ function HeaderContent({
             className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-btn to-btn-hover px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-btn/35 transition-all hover:shadow-xl hover:shadow-btn/45"
           >
             <Calculator size={16} aria-hidden />
-            <span className="whitespace-nowrap">Calculate Now</span>
+            <span className="whitespace-nowrap">Hesapla</span>
             <ArrowRight
               size={14}
               className="transition-transform group-hover:translate-x-0.5"
@@ -164,7 +164,7 @@ function HeaderContent({
                 className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-btn to-btn-hover py-3.5 text-sm font-semibold text-white shadow-lg"
               >
                 <Calculator size={16} aria-hidden />
-                Calculate Now
+                Hesapla
               </Link>
             </nav>
           </motion.div>

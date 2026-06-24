@@ -20,12 +20,12 @@ export default function ContactForm() {
     const message = (data.get("message") as string)?.trim();
 
     const newErrors: Record<string, string> = {};
-    if (!name) newErrors.name = "Full name is required";
+    if (!name) newErrors.name = "Ad soyad zorunludur";
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      newErrors.email = "Please enter a valid email";
-    if (!subject) newErrors.subject = "Subject is required";
+      newErrors.email = "Geçerli bir e-posta girin";
+    if (!subject) newErrors.subject = "Konu zorunludur";
     if (!message || message.length < 20)
-      newErrors.message = "Message must be at least 20 characters";
+      newErrors.message = "Mesaj en az 20 karakter olmalıdır";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -43,16 +43,16 @@ export default function ContactForm() {
         className="rounded-2xl border border-success/30 bg-green-50 p-8 text-center"
         role="status"
       >
-        <h2 className="text-xl font-semibold text-success">Thank you!</h2>
+        <h2 className="text-xl font-semibold text-success">Teşekkürler!</h2>
         <p className="mt-2 text-text-secondary">
-          Your message was received. We will reply within 1–2 business days.
+          Mesajınız alındı. 1–2 iş günü içinde yanıt vereceğiz.
         </p>
         <button
           type="button"
           onClick={() => setSubmitted(false)}
           className="mt-6 text-sm font-medium text-secondary hover:underline"
         >
-          Send another message
+          Başka bir mesaj gönder
         </button>
       </div>
     );
@@ -74,7 +74,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="name" className="mb-1 block text-sm font-semibold">
-          Full Name
+          Ad Soyad
         </label>
         <input
           id="name"
@@ -87,7 +87,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="email" className="mb-1 block text-sm font-semibold">
-          Email Address
+          E-posta Adresi
         </label>
         <input
           id="email"
@@ -100,7 +100,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="subject" className="mb-1 block text-sm font-semibold">
-          Subject
+          Konu
         </label>
         <input
           id="subject"
@@ -108,12 +108,14 @@ export default function ContactForm() {
           type="text"
           className="w-full rounded-lg border border-border px-4 py-3 focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
         />
-        {errors.subject && <p className="mt-1 text-sm text-error">{errors.subject}</p>}
+        {errors.subject && (
+          <p className="mt-1 text-sm text-error">{errors.subject}</p>
+        )}
       </div>
 
       <div>
         <label htmlFor="message" className="mb-1 block text-sm font-semibold">
-          Message
+          Mesaj
         </label>
         <textarea
           id="message"
@@ -121,13 +123,15 @@ export default function ContactForm() {
           rows={5}
           className="w-full rounded-lg border border-border px-4 py-3 focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
         />
-        {errors.message && <p className="mt-1 text-sm text-error">{errors.message}</p>}
+        {errors.message && (
+          <p className="mt-1 text-sm text-error">{errors.message}</p>
+        )}
       </div>
 
-      <p className="text-sm text-text-secondary">Response time: 1–2 business days</p>
+      <p className="text-sm text-text-secondary">Yanıt süresi: 1–2 iş günü</p>
 
       <Button type="submit" className="w-full">
-        Send Message
+        Mesaj Gönder
       </Button>
     </form>
   );

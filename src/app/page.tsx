@@ -4,13 +4,52 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageEntrance from "@/components/PageEntrance";
 import HeroSection from "@/components/sections/HeroSection";
-import ToolSection from "@/components/sections/ToolSection";
 import { FAQJsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
 import { siteMetadata } from "@/lib/site";
 
 const HowItWorksSection = dynamic(
   () => import("@/components/sections/HowItWorksSection"),
+  { ssr: true }
+);
+const CalculatorGuideSection = dynamic(
+  () => import("@/components/sections/CalculatorGuideSection"),
+  { ssr: true }
+);
+const ExamplesSection = dynamic(
+  () => import("@/components/sections/ExamplesSection"),
+  { ssr: true }
+);
+const WhoPaysSection = dynamic(
+  () => import("@/components/sections/WhoPaysSection"),
+  { ssr: true }
+);
+const ExtraCostsSection = dynamic(
+  () => import("@/components/sections/ExtraCostsSection"),
+  { ssr: true }
+);
+const CalculatorComparisonSection = dynamic(
+  () => import("@/components/sections/CalculatorComparisonSection"),
+  { ssr: true }
+);
+const PaymentSection = dynamic(
+  () => import("@/components/sections/PaymentSection"),
+  { ssr: true }
+);
+const LowerValueSection = dynamic(
+  () => import("@/components/sections/LowerValueSection"),
+  { ssr: true }
+);
+const SpecialCasesSection = dynamic(
+  () => import("@/components/sections/SpecialCasesSection"),
+  { ssr: true }
+);
+const RefundSection = dynamic(
+  () => import("@/components/sections/RefundSection"),
+  { ssr: true }
+);
+const RisksSection = dynamic(
+  () => import("@/components/sections/RisksSection"),
   { ssr: true }
 );
 const InfoCardsSection = dynamic(
@@ -37,9 +76,18 @@ export default function HomePage() {
       <Header />
       <PageEntrance>
         <HeroSection />
-        <ToolSection />
-        <HowItWorksSection />
         <InfoCardsSection />
+        <HowItWorksSection />
+        <CalculatorGuideSection />
+        <ExamplesSection />
+        <WhoPaysSection />
+        <ExtraCostsSection />
+        <CalculatorComparisonSection />
+        <PaymentSection />
+        <LowerValueSection />
+        <SpecialCasesSection />
+        <RefundSection />
+        <RisksSection />
         <FAQSection />
         <CTABanner />
       </PageEntrance>

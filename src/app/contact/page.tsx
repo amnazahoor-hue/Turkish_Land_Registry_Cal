@@ -4,8 +4,9 @@ import ContactForm from "@/components/contact/ContactForm";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Contact",
-  description: "Contact TapuCalc — questions, feedback, and partnership inquiries.",
+  title: "İletişim",
+  description:
+    "TapuCalc iletişim — sorular, geri bildirim ve iş birliği talepleri.",
   path: "/contact",
 });
 
@@ -14,21 +15,21 @@ export default function ContactPage() {
     <>
       <Header />
       <main className="min-h-screen bg-surface pb-16 pt-24 sm:pt-28 md:pt-32">
-        <div className="page-container-narrow max-w-xl">
+        <div className="page-container-narrow mx-auto max-w-3xl">
           <h1 className="text-center font-display text-3xl font-bold text-primary sm:text-4xl">
-            Contact Us
+            İletişim
           </h1>
           <p className="mt-4 text-center text-text-secondary">
-            Questions, suggestions, or partnership requests — use the form below.
-            We typically reply within 1–2 business days.
+            Sorularınız, önerileriniz veya iş birliği talepleriniz için aşağıdaki
+            formu kullanın. Genellikle 1–2 iş günü içinde yanıt veriyoruz.
           </p>
           <div className="mt-8">
             <ContactForm />
           </div>
           <div className="mt-10 rounded-xl border border-border bg-white p-6 text-center text-sm text-text-secondary">
-            <p className="font-semibold text-primary">Direct contact</p>
+            <p className="font-semibold text-primary">Doğrudan iletişim</p>
             <p className="mt-2">
-              Email:{" "}
+              E-posta:{" "}
               <a
                 href="mailto:info@tapucalc.com"
                 className="text-secondary hover:underline"
@@ -36,7 +37,7 @@ export default function ContactPage() {
                 info@tapucalc.com
               </a>
             </p>
-            <p className="mt-1">Istanbul, Turkey</p>
+            <p className="mt-1">İstanbul, Türkiye</p>
           </div>
         </div>
       </main>

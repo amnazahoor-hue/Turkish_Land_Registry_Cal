@@ -84,6 +84,7 @@ export function isNavLinkActive(
 ): boolean {
   if (href === "/about-us") return pathname === "/about-us";
   if (href === "/contact") return pathname === "/contact";
+  if (href === "/author") return pathname === "/author";
   if (href === "/disclaimer") return pathname === "/disclaimer";
   if (href === "/privacy-policy") return pathname === "/privacy-policy";
   if (href === "/terms-and-conditions") return pathname === "/terms-and-conditions";

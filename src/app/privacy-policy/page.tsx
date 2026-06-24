@@ -3,14 +3,14 @@ import { PrivacyPolicyContent } from "@/lib/legal-content";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Privacy Policy",
-  description: "TapuCalc privacy policy and personal data protection information.",
+  title: "Gizlilik Politikası",
+  description: "TapuCalc gizlilik politikası ve kişisel veri koruma bilgileri.",
   path: "/privacy-policy",
 });
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPageLayout title="Privacy Policy">
+    <LegalPageLayout title="Gizlilik Politikası">
       <PrivacyPolicyContent />
     </LegalPageLayout>
   );

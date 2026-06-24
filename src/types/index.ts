@@ -30,7 +30,9 @@ export type SocialBrand =
   | "facebook"
   | "instagram"
   | "x"
-  | "linkedin"
+  | "pinterest"
+  | "reddit"
+  | "quora"
   | "youtube";
 
 export interface SocialLink {

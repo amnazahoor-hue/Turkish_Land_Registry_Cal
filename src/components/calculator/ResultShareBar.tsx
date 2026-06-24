@@ -23,11 +23,13 @@ function WhatsAppIcon({ className }: { className?: string }) {
 interface ResultShareBarProps {
   result: TapuFeeResult;
   salePriceLabel: string;
+  compact?: boolean;
 }
 
 export default function ResultShareBar({
   result,
   salePriceLabel,
+  compact = false,
 }: ResultShareBarProps) {
   const [pdfLoading, setPdfLoading] = useState(false);
   const [pdfStatus, setPdfStatus] = useState<"idle" | "success" | "error">("idle");
@@ -59,29 +61,41 @@ export default function ResultShareBar({
   };
 
   return (
-    <div className="border-t border-border pt-6">
-      <p className="mb-4 text-center text-sm font-semibold text-text-primary">
-        Share or save your results
-      </p>
-      <div className="mx-auto flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
+    <div className={cn("border-t border-border", compact ? "pt-3" : "pt-6")}>
+      {!compact && (
+        <p className="mb-4 text-center text-sm font-semibold text-text-primary">
+          Sonuçları paylaşın veya kaydedin
+        </p>
+      )}
+      <div
+        className={cn(
+          "mx-auto flex w-full gap-2",
+          compact
+            ? "justify-center"
+            : "max-w-md flex-col sm:max-w-none sm:flex-row sm:justify-center sm:gap-3"
+        )}
+      >
         <ShareButton
           onClick={handleWhatsApp}
           label="WhatsApp"
+          compact={compact}
           className="bg-[#25D366] text-white hover:bg-[#1da851]"
-          icon={<WhatsAppIcon className="h-5 w-5" />}
+          icon={<WhatsAppIcon className={compact ? "h-4 w-4" : "h-5 w-5"} />}
         />
         <ShareButton
           onClick={handleEmail}
-          label="Email"
+          label="E-posta"
+          compact={compact}
           className="bg-primary text-white hover:opacity-90"
-          icon={<Mail className="h-5 w-5" strokeWidth={2} />}
+          icon={<Mail className={compact ? "h-4 w-4" : "h-5 w-5"} strokeWidth={2} />}
         />
         <ShareButton
           onClick={handlePdf}
-          label={pdfLoading ? "Generating PDF…" : "Export PDF"}
+          label={pdfLoading ? "PDF…" : compact ? "PDF" : "PDF İndir"}
+          compact={compact}
           disabled={pdfLoading}
           className="bg-btn text-white hover:bg-btn-hover"
-          icon={<FileDown className="h-5 w-5" strokeWidth={2} />}
+          icon={<FileDown className={compact ? "h-4 w-4" : "h-5 w-5"} strokeWidth={2} />}
         />
       </div>
 
@@ -113,12 +127,14 @@ function ShareButton({
   icon,
   className,
   disabled,
+  compact = false,
 }: {
   onClick: () => void;
   label: string;
   icon: React.ReactNode;
   className: string;
   disabled?: boolean;
+  compact?: boolean;
 }) {
   return (
     <button
@@ -126,12 +142,15 @@ function ShareButton({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "inline-flex min-h-[44px] w-full flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold shadow-md transition-all disabled:cursor-wait disabled:opacity-70 sm:max-w-[200px] sm:flex-initial",
+        "inline-flex items-center justify-center gap-1.5 rounded-lg font-semibold shadow-md transition-all disabled:cursor-wait disabled:opacity-70",
+        compact
+          ? "min-h-[36px] flex-1 px-2 py-2 text-xs"
+          : "min-h-[44px] w-full flex-1 rounded-xl px-5 py-3 text-sm sm:max-w-[200px] sm:flex-initial",
         className
       )}
     >
       {icon}
-      {label}
+      <span className={compact ? "truncate" : undefined}>{label}</span>
     </button>
   );
 }

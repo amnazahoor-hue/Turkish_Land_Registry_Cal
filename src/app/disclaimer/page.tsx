@@ -3,15 +3,15 @@ import { DisclaimerContent } from "@/lib/legal-content";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Disclaimer",
+  title: "Feragatname",
   description:
-    "TapuCalc disclaimer and legal notices for the title deed fee calculator.",
+    "TapuCalc feragatnamesi ve tapu harcı hesaplayıcısı için yasal uyarılar.",
   path: "/disclaimer",
 });
 
 export default function DisclaimerPage() {
   return (
-    <LegalPageLayout title="Disclaimer">
+    <LegalPageLayout title="Feragatname">
       <DisclaimerContent />
     </LegalPageLayout>
   );

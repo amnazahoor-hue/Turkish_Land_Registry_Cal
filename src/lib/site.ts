@@ -10,9 +10,9 @@ export const SITE_URL = normalizeSiteUrl(
 
 export const siteMetadata = {
   name: SITE_NAME,
-  title: "Title Deed Fee Calculator | TapuCalc — Official 4% Rate",
+  title: "Tapu Harcı Hesaplama: Alıcı ve Satıcının Maliyetleri",
   description:
-    "Free TapuCalc tool: calculate Turkish title deed (tapu) transfer fees instantly. Official 4% rate — 2% buyer + 2% seller. No sign-up.",
+    "Doğru bir bilgi edinin tapu harcı hesaplama hesaplayıcımızdan yararlanarak, gayrimenkul değerine göre devir maliyetlerini tahmin edebilirsiniz.",
   keywords: [
     "title deed fee calculator",
     "tapu harcı calculator",

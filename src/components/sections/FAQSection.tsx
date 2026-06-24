@@ -54,15 +54,15 @@ export default function FAQSection() {
           <div className="section-heading mb-8 md:mb-10">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary shadow-sm">
               <HelpCircle size={14} className="text-btn" aria-hidden />
-              Got questions?
+              SSS
             </span>
             <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-primary md:text-4xl lg:text-[2.75rem]">
-              Frequently Asked{" "}
-              <span className="text-gradient-hero">Questions</span>
+              Sıkça Sorulan{" "}
+              <span className="text-gradient-hero">Sorular</span>
             </h2>
             <p className="mt-3 text-base leading-relaxed text-text-secondary md:text-lg">
-              Clear answers about Turkish title deed fees, payments, and the
-              transfer process.
+              Tapu kayıt ücretleri, ödemeler ve devir süreci hakkında net
+              yanıtlar.
             </p>
           </div>
         </ScrollReveal>
@@ -76,18 +76,18 @@ export default function FAQSection() {
                 </div>
                 <div className="border-t border-border bg-gradient-to-r from-primary/5 to-accent/5 p-5">
                   <p className="text-sm font-semibold text-primary">
-                    Official 4% transfer fee
+                    Resmi %4 devir ücreti
                   </p>
                   <p className="mt-1 text-xs leading-relaxed text-text-secondary">
-                    2% buyer + 2% seller — fixed by law, paid before your Tapu
-                    appointment.
+                    %2 alıcı + %2 satıcı — kanunla sabitlenmiş, Tapu randevusundan
+                    önce ödenir.
                   </p>
                   <div className="mt-4 flex flex-wrap justify-center gap-2 lg:justify-start">
                     <span className="rounded-lg bg-btn/10 px-2.5 py-1 text-xs font-bold text-btn">
-                      Buyer 2%
+                      Alıcı %2
                     </span>
                     <span className="rounded-lg bg-secondary/10 px-2.5 py-1 text-xs font-bold text-secondary">
-                      Seller 2%
+                      Satıcı %2
                     </span>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function FAQSection() {
                 }
                 className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-btn to-btn-hover px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-btn/25"
               >
-                Try the calculator
+                Hesaplayıcıyı deneyin
                 <ArrowRight size={18} aria-hidden />
               </MagneticButton>
             </aside>
@@ -151,37 +151,39 @@ function FAQAccordionItem({
             : "border-border hover:border-primary/15 hover:shadow-md"
         )}
       >
-        <button
-          type="button"
-          onClick={onToggle}
-          className="grid w-full grid-cols-[2.75rem_1fr_2.75rem] items-center gap-x-3 px-4 py-4 text-left sm:gap-x-4 sm:px-5 sm:py-5"
-          aria-expanded={isOpen}
-        >
-          <span
-            className={cn(
-              "flex h-11 w-11 shrink-0 items-center justify-center justify-self-center rounded-xl transition-colors",
-              isOpen ? "bg-accent/15 text-[#b8860b]" : "bg-surface text-secondary"
-            )}
+        <h3 className="m-0 text-base font-semibold md:text-lg">
+          <button
+            type="button"
+            onClick={onToggle}
+            className="grid w-full grid-cols-[2.75rem_1fr_2.75rem] items-center gap-x-3 px-4 py-4 text-left sm:gap-x-4 sm:py-5 sm:pl-5 sm:pr-5"
+            aria-expanded={isOpen}
           >
-            <Icon size={22} strokeWidth={1.75} aria-hidden />
-          </span>
+            <span
+              className={cn(
+                "flex h-11 w-11 shrink-0 items-center justify-center justify-self-center rounded-xl transition-colors",
+                isOpen ? "bg-accent/15 text-[#b8860b]" : "bg-surface text-secondary"
+              )}
+            >
+              <Icon size={22} strokeWidth={1.75} aria-hidden />
+            </span>
 
-          <span className="min-w-0 self-center text-sm font-semibold leading-snug text-text-primary sm:text-base md:text-lg">
-            {faq.q}
-          </span>
+            <span className="min-w-0 self-center text-sm leading-snug text-text-primary sm:text-base">
+              {faq.q}
+            </span>
 
-          <span
-            className={cn(
-              "flex h-11 w-11 shrink-0 items-center justify-center justify-self-center rounded-full transition-colors",
-              isOpen ? "bg-btn text-white" : "bg-surface text-btn"
-            )}
-          >
-            <ChevronDown
-              size={20}
-              className={cn("transition-transform duration-300", isOpen && "rotate-180")}
-            />
-          </span>
-        </button>
+            <span
+              className={cn(
+                "flex h-11 w-11 shrink-0 items-center justify-center justify-self-center rounded-full transition-colors",
+                isOpen ? "bg-btn text-white" : "bg-surface text-btn"
+              )}
+            >
+              <ChevronDown
+                size={20}
+                className={cn("transition-transform duration-300", isOpen && "rotate-180")}
+              />
+            </span>
+          </button>
+        </h3>
 
         <AnimatePresence initial={false}>
           {isOpen && (
