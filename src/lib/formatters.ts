@@ -6,6 +6,15 @@ export function formatTRY(amount: number): string {
   }).format(amount);
 }
 
+/** Competitor-style amount: 10.000,00₺ */
+export function formatTRYSuffix(amount: number): string {
+  const n = new Intl.NumberFormat("tr-TR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(amount);
+  return `${n}₺`;
+}
+
 export function formatTRYForPdf(amount: number): string {
   const n = new Intl.NumberFormat("tr-TR", {
     minimumFractionDigits: 2,

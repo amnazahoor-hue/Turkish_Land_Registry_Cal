@@ -4,9 +4,9 @@ import ContactForm from "@/components/contact/ContactForm";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "İletişim",
+  title: "Bize Ulaşın",
   description:
-    "TapuCalc iletişim — sorular, geri bildirim ve iş birliği talepleri.",
+    "TapuCalc — sorular, geri bildirim ve iş birliği talepleri için bize ulaşın.",
   path: "/contact",
 });
 
@@ -17,7 +17,7 @@ export default function ContactPage() {
       <main className="min-h-screen bg-surface pb-16 pt-24 sm:pt-28 md:pt-32">
         <div className="page-container-narrow mx-auto max-w-3xl">
           <h1 className="text-center font-display text-3xl font-bold text-primary sm:text-4xl">
-            İletişim
+            Bize Ulaşın
           </h1>
           <p className="mt-4 text-center text-text-secondary">
             Sorularınız, önerileriniz veya iş birliği talepleriniz için aşağıdaki

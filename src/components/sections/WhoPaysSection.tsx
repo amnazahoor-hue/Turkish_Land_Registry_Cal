@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Users } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
@@ -9,10 +10,18 @@ export default function WhoPaysSection() {
       id="who-pays"
       className="info-section-bg section-pad relative scroll-mt-24 overflow-hidden"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40 hero-mesh"
-        aria-hidden
-      />
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image
+          src="/images/who-pays-background.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-[0.48] sm:opacity-[0.44] lg:opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f8fafc]/78 via-white/62 to-[#f1f5f9]/72" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-white/35" />
+        <div className="absolute inset-0 opacity-[0.12] hero-mesh" aria-hidden />
+      </div>
 
       <div className="page-container relative">
         <ScrollReveal>

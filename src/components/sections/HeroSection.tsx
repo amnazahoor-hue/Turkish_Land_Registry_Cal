@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import CalculatorCard from "@/components/calculator/CalculatorCard";
 import FloatingOrbs from "@/components/ui/FloatingOrbs";
@@ -15,16 +16,24 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="hero-bg hero-mesh relative overflow-hidden border-b border-border/80 scroll-mt-24 pt-16 max-sm:pt-20 md:pt-20"
+      className="hero-bg hero-mesh relative overflow-hidden border-b border-border/80 scroll-mt-24 pt-20 max-sm:pt-24 md:pt-24"
     >
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image
+          src="/images/hero-background.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[70%_center] opacity-[0.22] sm:object-right sm:opacity-[0.2] lg:opacity-[0.18]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/78 to-white/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/30" />
+      </div>
       <FloatingOrbs />
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-transparent"
-        aria-hidden
-      />
 
-      <div className="page-container relative pb-12 pt-2 max-sm:pt-5 sm:pt-3 md:pb-16 md:pt-4 lg:pb-20">
-        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+      <div className="page-container relative pb-16 pt-8 max-sm:pb-16 max-sm:pt-10 sm:pt-10 md:pb-20 md:pt-12 lg:pb-24 lg:pt-14">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           <motion.div
             className="mx-auto flex w-full max-w-xl flex-col items-center text-center lg:mx-0 lg:max-w-none lg:items-start lg:text-left"
             variants={staggerContainer(0.1)}
@@ -34,7 +43,7 @@ export default function HeroSection() {
             <motion.h1
               variants={fadeUpBlur}
               transition={springSoft}
-              className="font-display text-[1.75rem] font-bold leading-[1.12] tracking-tight text-primary sm:text-4xl md:text-5xl lg:text-[3rem]"
+              className="font-display text-[2rem] font-bold leading-[1.12] tracking-tight text-primary sm:text-5xl md:text-[3.25rem] lg:text-6xl xl:text-[3.75rem]"
             >
               Tapu Harcı Hesaplama{" "}
               <span className="text-gradient-hero">
@@ -45,7 +54,7 @@ export default function HeroSection() {
             <motion.p
               variants={fadeUpBlur}
               transition={springSoft}
-              className="mt-4 text-base leading-relaxed text-text-secondary md:text-lg"
+              className="mt-5 text-lg leading-relaxed text-text-secondary md:text-xl lg:text-[1.35rem]"
             >
               Tapu kayıt ücretinizi hesaplayın ve mülk devrinden önce alıcı ve
               satıcının tam olarak ne kadar ödemesi gerektiğini öğrenin. Aracımız
@@ -66,9 +75,9 @@ export default function HeroSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.6 + i * 0.1, ...springSoft }}
                   whileHover={{ y: -3, scale: 1.02 }}
-                  className="inline-flex cursor-default items-center gap-2 rounded-full border border-border bg-white/90 px-4 py-2 text-sm font-medium text-text-primary shadow-sm backdrop-blur-sm"
+                  className="inline-flex cursor-default items-center gap-2.5 rounded-full border border-border bg-white/90 px-4 py-2.5 text-base font-medium text-text-primary shadow-sm backdrop-blur-sm"
                 >
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-btn/10 text-xs font-bold text-btn">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-btn/10 text-sm font-bold text-btn">
                     ✓
                   </span>
                   {badge}
@@ -77,8 +86,8 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          <div className="relative mx-auto w-full max-w-md sm:max-w-lg lg:mx-0 lg:max-w-none lg:self-start lg:pl-4">
-            <CalculatorCard compact />
+          <div className="relative mx-auto w-full max-w-md sm:max-w-lg lg:mx-0 lg:max-w-none lg:pl-4">
+            <CalculatorCard hero />
           </div>
         </div>
       </div>

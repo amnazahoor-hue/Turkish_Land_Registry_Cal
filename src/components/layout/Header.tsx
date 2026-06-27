@@ -6,6 +6,7 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { ArrowRight, Calculator, Menu, X } from "lucide-react";
 import { useState } from "react";
 import Logo from "@/components/ui/Logo";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { navLinks } from "@/lib/constants";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -70,20 +71,22 @@ function HeaderContent({
 }) {
   return (
     <>
-      <div className="mx-auto max-w-7xl px-4 py-3 lg:px-8">
-        <div className="hidden lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-8">
+      <div className="page-container relative py-3">
+        <div className="flex items-center justify-between gap-3">
           <Link
             href="/"
-            className="transition-opacity hover:opacity-90"
-            aria-label="Home"
+            onClick={closeMobile}
+            className="relative z-10 shrink-0 transition-opacity hover:opacity-90"
+            aria-label="Ana sayfa"
           >
-            <Logo variant="light" />
+            <Logo variant="light" mobile={false} className="hidden sm:flex" />
+            <Logo variant="light" mobile className="sm:hidden" />
           </Link>
 
           <LayoutGroup id="main-nav">
             <nav
-              className="mx-auto flex items-center justify-center gap-0.5 rounded-full border border-white/15 bg-[#0f2744] px-1.5 py-1 shadow-inner"
-              aria-label="Main navigation"
+              className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 rounded-full border border-white/15 bg-[#0f2744] px-1.5 py-1 shadow-inner lg:flex"
+              aria-label="Ana menü"
             >
               {navLinks.map((link) => (
                 <NavLinkItem
@@ -96,38 +99,30 @@ function HeaderContent({
             </nav>
           </LayoutGroup>
 
-          <Link
-            href="/#calculator"
-            className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-btn to-btn-hover px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-btn/35 transition-all hover:shadow-xl hover:shadow-btn/45"
-          >
-            <Calculator size={16} aria-hidden />
-            <span className="whitespace-nowrap">Hesapla</span>
-            <ArrowRight
-              size={14}
-              className="transition-transform group-hover:translate-x-0.5"
-              aria-hidden
-            />
-          </Link>
-        </div>
-
-        <div className="flex items-center justify-between gap-3 lg:hidden">
-          <Link
-            href="/"
-            onClick={closeMobile}
-            aria-label="Home"
-            className="min-w-0 shrink"
-          >
-            <Logo variant="light" mobile />
-          </Link>
-          <button
-            type="button"
-            className="rounded-xl border border-white/20 bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="relative z-10 flex shrink-0 items-center gap-2 sm:gap-2.5">
+            <LanguageSwitcher />
+            <Link
+              href="/#calculator"
+              className="group hidden items-center gap-2 rounded-full bg-gradient-to-r from-btn to-btn-hover px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-btn/35 transition-all hover:shadow-xl hover:shadow-btn/45 sm:inline-flex"
+            >
+              <Calculator size={16} aria-hidden />
+              <span className="whitespace-nowrap">Hesapla</span>
+              <ArrowRight
+                size={14}
+                className="transition-transform group-hover:translate-x-0.5"
+                aria-hidden
+              />
+            </Link>
+            <button
+              type="button"
+              className="rounded-xl border border-white/20 bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 lg:hidden"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? "Menüyü kapat" : "Menüyü aç"}
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -141,7 +136,7 @@ function HeaderContent({
           >
             <nav
               className="flex flex-col gap-1 px-4 py-5"
-              aria-label="Mobile navigation"
+              aria-label="Mobil menü"
             >
               {navLinks.map((link) => (
                 <Link

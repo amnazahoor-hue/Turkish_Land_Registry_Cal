@@ -38,7 +38,7 @@ export default function CTABanner() {
         aria-hidden
       />
 
-      <div className="page-container relative max-w-4xl text-center">
+      <div className="page-container relative text-center">
         <ScrollReveal>
           <motion.h2
             className="font-display text-2xl font-bold text-white md:text-4xl"
@@ -47,7 +47,7 @@ export default function CTABanner() {
             viewport={{ once: true }}
             transition={springSoft}
           >
-            Ready to Plan Your Property Transfer?
+            Mülk Devirinizi Planlamaya Hazır mısınız?
           </motion.h2>
           <motion.p
             className="mx-auto mt-4 max-w-xl text-lg text-white/85"
@@ -56,7 +56,7 @@ export default function CTABanner() {
             viewport={{ once: true }}
             transition={{ delay: 0.15, ...springSoft }}
           >
-            Calculate your title deed fees now and set your budget in advance.
+            Tapu harcınızı şimdi hesaplayın ve bütçenizi önceden belirleyin.
           </motion.p>
           <div className="mt-10 flex justify-center">
             <MagneticButton
@@ -64,7 +64,7 @@ export default function CTABanner() {
               onClick={scrollToCalculator}
               className="inline-flex items-center gap-2 rounded-2xl bg-btn px-10 py-4 text-lg font-semibold text-white shadow-2xl shadow-black/25 hover:bg-btn-hover"
             >
-              Calculate Free
+              Ücretsiz Hesapla
               <ArrowRight size={20} aria-hidden />
             </MagneticButton>
           </div>

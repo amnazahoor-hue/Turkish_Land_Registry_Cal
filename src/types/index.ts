@@ -7,6 +7,8 @@ export interface TapuFeeResult {
   sellerRate: number;
 }
 
+export type CalculationMode = "from-sale-price" | "from-total-fee";
+
 export type FAQIcon =
   | "receipt"
   | "users"

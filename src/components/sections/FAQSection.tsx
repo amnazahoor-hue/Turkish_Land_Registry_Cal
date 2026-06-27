@@ -1,24 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ChevronDown,
-  HelpCircle,
-  Receipt,
-  Users,
-  Calculator,
-  Scale,
-  Files,
-  Globe2,
-  ArrowRight,
-  type LucideIcon,
-} from "lucide-react";
+import Image from "next/image";
+import { ChevronDown, HelpCircle, Receipt, Users, Calculator, Scale, Files, Globe2, ArrowRight, type LucideIcon } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import MagneticButton from "@/components/ui/MagneticButton";
-import FAQSidebarVisual from "@/components/sections/FAQSidebarVisual";
 import { faqs } from "@/lib/constants";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
 import type { FAQIcon, FAQItem } from "@/types";
 import { cn } from "@/lib/cn";
 
@@ -33,7 +20,6 @@ const iconMap: Record<FAQIcon, LucideIcon> = {
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const reducedMotion = useReducedMotion();
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -67,12 +53,19 @@ export default function FAQSection() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 items-start gap-8 md:gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="grid grid-cols-1 items-stretch gap-8 md:gap-10 lg:grid-cols-12 lg:gap-12">
           <ScrollReveal className="mx-auto w-full max-w-lg lg:col-span-5 lg:mx-0 lg:max-w-none">
-            <aside className="text-center lg:sticky lg:top-28 lg:text-left">
+            <aside className="flex h-full flex-col text-center lg:text-left">
               <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-lg saas-card-glow">
-                <div className="relative aspect-[10/11] min-h-[280px] w-full bg-gradient-to-br from-surface to-white p-3 sm:min-h-[320px]">
-                  <FAQSidebarVisual />
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface">
+                  <Image
+                    src="/images/faq-sidebar.webp"
+                    alt="Tapu sicil ve tapu harcı ile ilgili resmi belgeler"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover object-center"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent" />
                 </div>
                 <div className="border-t border-border bg-gradient-to-r from-primary/5 to-accent/5 p-5">
                   <p className="text-sm font-semibold text-primary">
@@ -108,7 +101,10 @@ export default function FAQSection() {
             </aside>
           </ScrollReveal>
 
-          <div className="space-y-3 lg:col-span-7">
+          <div
+            className="space-y-3 lg:col-span-7"
+            aria-label="Sıkça sorulan sorular listesi"
+          >
             {faqs.map((faq, index) => (
               <FAQAccordionItem
                 key={faq.q}
@@ -116,7 +112,6 @@ export default function FAQSection() {
                 index={index}
                 isOpen={openIndex === index}
                 onToggle={() => toggle(index)}
-                reducedMotion={reducedMotion}
               />
             ))}
           </div>
@@ -131,13 +126,11 @@ function FAQAccordionItem({
   index,
   isOpen,
   onToggle,
-  reducedMotion,
 }: {
   faq: FAQItem;
   index: number;
   isOpen: boolean;
   onToggle: () => void;
-  reducedMotion: boolean;
 }) {
   const Icon = iconMap[faq.iconName];
 
@@ -145,7 +138,7 @@ function FAQAccordionItem({
     <ScrollReveal delay={index * 0.05}>
       <div
         className={cn(
-          "overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-300",
+          "overflow-hidden rounded-2xl border bg-white shadow-sm transition-[border-color,box-shadow] duration-300",
           isOpen
             ? "border-accent/40 shadow-md ring-1 ring-accent/20"
             : "border-border hover:border-primary/15 hover:shadow-md"
@@ -185,23 +178,20 @@ function FAQAccordionItem({
           </button>
         </h3>
 
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div
-              initial={reducedMotion ? false : { height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.32, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <div className="border-t border-border/60 bg-gradient-to-b from-orange-50/40 to-white px-4 pb-5 pt-4 sm:px-5">
-                <p className="text-center text-[15px] leading-relaxed text-text-secondary lg:text-left">
-                  {faq.a}
-                </p>
-              </div>
-            </motion.div>
+        <div
+          className={cn(
+            "grid transition-[grid-template-rows,opacity] duration-300 ease-in-out",
+            isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
           )}
-        </AnimatePresence>
+        >
+          <div className="overflow-hidden">
+            <div className="border-t border-border/60 bg-gradient-to-b from-orange-50/40 to-white px-4 pb-5 pt-4 sm:px-5">
+              <p className="text-center text-[15px] leading-relaxed text-text-secondary lg:text-left">
+                {faq.a}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </ScrollReveal>
   );

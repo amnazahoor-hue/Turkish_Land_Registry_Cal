@@ -90,22 +90,16 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <ul className="mt-6 space-y-3 text-sm text-white/70">
-              <li>
-                <a
-                  href="mailto:info@tapucalc.com"
-                  className="transition-colors hover:text-white"
-                >
-                  info@tapucalc.com
-                </a>
-              </li>
-              <li>İstanbul, Türkiye</li>
-            </ul>
           </div>
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-white/50">
-          © {year} {SITE_NAME}. Tüm hakları saklıdır.
+          <Link
+            href="/#home"
+            className="transition-colors hover:text-white/80"
+          >
+            © {year} {SITE_NAME}. Tüm hakları saklıdır.
+          </Link>
         </div>
       </div>
     </footer>

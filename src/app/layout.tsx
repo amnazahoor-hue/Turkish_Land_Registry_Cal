@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     description: siteMetadata.description,
     url: SITE_URL,
     siteName: SITE_NAME,
-    locale: "en_US",
+    locale: "tr_TR",
     type: "website",
     images: [
       {
@@ -71,6 +71,9 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: { canonical: SITE_URL },
+  other: {
+    google: "notranslate",
+  },
 };
 
 export default function RootLayout({
@@ -80,7 +83,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="tr"
       className={`${playfair.variable} ${dmSans.variable} ${jetbrains.variable}`}
     >
       <body className="min-h-screen overflow-x-hidden">

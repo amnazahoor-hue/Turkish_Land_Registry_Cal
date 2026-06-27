@@ -11,9 +11,9 @@ export const SITE_NAME = "TapuCalc";
 export const AUTHOR_NAME = "Selin Tekvatan";
 
 export const navLinks: NavLink[] = [
-  { label: "Ana Sayfa", href: "/" },
-  { label: "Nasıl Hesaplanır", href: "/#how-it-works" },
-  { label: "SSS", href: "/#faq" },
+  { label: "Hakkımızda", href: "/about-us" },
+  { label: "Bize Ulaşın", href: "/contact" },
+  { label: "Gizlilik Politikası", href: "/privacy-policy" },
 ];
 
 export const legalLinks: NavLink[] = [
@@ -24,7 +24,7 @@ export const legalLinks: NavLink[] = [
 
 export const companyLinks: NavLink[] = [
   { label: "Hakkımızda", href: "/about-us" },
-  { label: "İletişim", href: "/contact" },
+  { label: "Bize Ulaşın", href: "/contact" },
   { label: "Yazar", href: "/author" },
 ];
 
