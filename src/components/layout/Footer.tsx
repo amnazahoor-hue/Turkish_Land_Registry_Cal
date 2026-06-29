@@ -29,8 +29,11 @@ export default function Footer() {
               </Link>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
-              Türkiye&apos;de mülk alıcıları ve satıcıları için resmi devir
-              oranlarına dayalı ücretsiz tapu harcı hesaplama aracı.
+              Türkiye&apos;de mülk alıcıları ve satıcıları için
+              <br />
+              resmi devir oranlarına dayalı
+              <br />
+              ücretsiz tapu harcı hesaplama aracı.
             </p>
             <div className="mt-6 flex flex-nowrap items-center justify-center gap-2 sm:gap-2.5 lg:justify-start">
               {socialLinks.map((social) => (
