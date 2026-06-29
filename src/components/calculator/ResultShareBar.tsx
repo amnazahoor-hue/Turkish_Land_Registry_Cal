@@ -41,7 +41,7 @@ export default function ResultShareBar({
   };
 
   const handleEmail = () => {
-    const subject = "TapuCalc — Title Deed Fee Estimate";
+    const subject = "TapuCalc — Tapu Harcı Tahmini";
     window.location.href = getEmailShareUrl(subject, summary);
   };
 
@@ -105,7 +105,7 @@ export default function ResultShareBar({
           role="status"
         >
           <CheckCircle size={16} />
-          PDF downloaded successfully
+          PDF başarıyla indirildi
         </p>
       )}
       {pdfStatus === "error" && (
@@ -114,7 +114,7 @@ export default function ResultShareBar({
           role="alert"
         >
           <AlertCircle size={16} />
-          PDF export failed. Please try again.
+          PDF dışa aktarılamadı. Lütfen tekrar deneyin.
         </p>
       )}
     </div>

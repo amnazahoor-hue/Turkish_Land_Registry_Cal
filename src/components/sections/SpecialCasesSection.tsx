@@ -60,7 +60,7 @@ export default function SpecialCasesSection() {
                 <FileWarning size={14} aria-hidden />
                 İstisnalar
               </span>
-              <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
+              <h2 className="mt-5 heading-h2-light">
                 Özel Durumlar Ve İstisnalar
               </h2>
               <div

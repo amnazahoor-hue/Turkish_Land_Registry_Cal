@@ -11,10 +11,15 @@ import {
 import type { SocialBrand } from "@/types";
 import { cn } from "@/lib/cn";
 
-const brandStyles: Record<
-  SocialBrand,
-  { bg: string; hover: string; label: string; Icon: IconType }
-> = {
+type BrandStyle = {
+  bg: string;
+  hover: string;
+  label: string;
+  Icon: IconType;
+  iconClass?: string;
+};
+
+const brandStyles: Record<SocialBrand, BrandStyle> = {
   facebook: {
     bg: "bg-[#1877F2]",
     hover: "hover:bg-[#166fe5]",
@@ -47,7 +52,7 @@ const brandStyles: Record<
   },
   quora: {
     bg: "bg-[#B92B27]",
-    hover: "hover:bg-[#9a2420]",
+    hover: "hover:bg-[#a32622]",
     label: "Quora",
     Icon: SiQuora,
   },
@@ -76,13 +81,19 @@ export default function SocialIconLink({ brand, href, label }: SocialIconLinkPro
       rel="noopener noreferrer"
       aria-label={label || style.label}
       className={cn(
-        "inline-flex h-10 w-10 items-center justify-center rounded-full shadow-md transition-all duration-200",
+        "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full shadow-md transition-all duration-200 sm:h-10 sm:w-10",
         style.bg,
         style.hover,
         "hover:scale-105 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
       )}
     >
-      <Icon className="h-[18px] w-[18px] shrink-0 text-white" aria-hidden />
+      <Icon
+        className={cn(
+          "h-[17px] w-[17px] shrink-0 text-white sm:h-[18px] sm:w-[18px]",
+          style.iconClass
+        )}
+        aria-hidden
+      />
     </a>
   );
 }

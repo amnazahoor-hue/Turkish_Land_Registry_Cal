@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronDown, HelpCircle, Receipt, Users, Calculator, Scale, Files, Globe2, ArrowRight, type LucideIcon } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { faqs } from "@/lib/constants";
+import { ROUTES } from "@/lib/routes";
 import type { FAQIcon, FAQItem } from "@/types";
 import { cn } from "@/lib/cn";
 
@@ -42,9 +44,14 @@ export default function FAQSection() {
               <HelpCircle size={14} className="text-btn" aria-hidden />
               SSS
             </span>
-            <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-primary md:text-4xl lg:text-[2.75rem]">
+            <h2 className="mt-5 heading-h2">
               Sıkça Sorulan{" "}
-              <span className="text-gradient-hero">Sorular</span>
+              <Link
+                href={ROUTES.contact}
+                className="text-gradient-hero underline-offset-4 hover:underline"
+              >
+                Sorular
+              </Link>
             </h2>
             <p className="mt-3 text-base leading-relaxed text-text-secondary md:text-lg">
               Tapu kayıt ücretleri, ödemeler ve devir süreci hakkında net
@@ -61,7 +68,9 @@ export default function FAQSection() {
                   <Image
                     src="/images/faq-sidebar.webp"
                     alt="Tapu sicil ve tapu harcı ile ilgili resmi belgeler"
+                    title="Tapu sicil ve tapu harcı ile ilgili resmi belgeler"
                     fill
+                    loading="lazy"
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover object-center"
                   />
@@ -144,7 +153,7 @@ function FAQAccordionItem({
             : "border-border hover:border-primary/15 hover:shadow-md"
         )}
       >
-        <h3 className="m-0 text-base font-semibold md:text-lg">
+        <h3 className="heading-card m-0 md:text-lg">
           <button
             type="button"
             onClick={onToggle}

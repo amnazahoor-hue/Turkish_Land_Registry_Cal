@@ -12,9 +12,11 @@ export default function WhoPaysSection() {
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
-          src="/images/who-pays-background.png"
-          alt=""
+          src="/images/who-pays-background.webp"
+          alt="Tapu sicil harcını kim öder — alıcı ve satıcı paylaşımı görseli"
+          title="Tapu sicil harcını kim öder — alıcı ve satıcı paylaşımı görseli"
           fill
+          loading="lazy"
           sizes="100vw"
           className="object-cover object-center opacity-[0.48] sm:opacity-[0.44] lg:opacity-40"
         />
@@ -31,7 +33,7 @@ export default function WhoPaysSection() {
                 <Users size={14} className="text-btn" aria-hidden />
                 Ödeme sorumluluğu
               </span>
-              <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-primary md:text-4xl lg:text-[2.75rem]">
+              <h2 className="mt-5 heading-h2">
                 Tapu Sicil Harcını Kim Öder?
               </h2>
               <div

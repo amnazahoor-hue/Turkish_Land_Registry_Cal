@@ -5,27 +5,29 @@ import type {
   NavLink,
   SocialLink,
 } from "@/types";
+import { ROUTES } from "@/lib/routes";
 
 export const SITE_NAME = "TapuCalc";
 
 export const AUTHOR_NAME = "Selin Tekvatan";
 
 export const navLinks: NavLink[] = [
-  { label: "Hakkımızda", href: "/about-us" },
-  { label: "Bize Ulaşın", href: "/contact" },
-  { label: "Gizlilik Politikası", href: "/privacy-policy" },
+  { label: "Hakkımızda", href: ROUTES.about },
+  { label: "Bize Ulaşın", href: ROUTES.contact },
+  { label: "Gizlilik Politikası", href: ROUTES.privacy },
+  { label: "Feragatname", href: ROUTES.disclaimer },
 ];
 
 export const legalLinks: NavLink[] = [
-  { label: "Feragatname", href: "/disclaimer" },
-  { label: "Gizlilik Politikası", href: "/privacy-policy" },
-  { label: "Kullanım Şartları", href: "/terms-and-conditions" },
+  { label: "Feragatname", href: ROUTES.disclaimer },
+  { label: "Gizlilik Politikası", href: ROUTES.privacy },
+  { label: "Kullanım Şartları", href: ROUTES.terms },
 ];
 
 export const companyLinks: NavLink[] = [
-  { label: "Hakkımızda", href: "/about-us" },
-  { label: "Bize Ulaşın", href: "/contact" },
-  { label: "Yazar", href: "/author" },
+  { label: "Hakkımızda", href: ROUTES.about },
+  { label: "Bize Ulaşın", href: ROUTES.contact },
+  { label: "Yazar", href: ROUTES.author },
 ];
 
 export const socialLinks: SocialLink[] = [

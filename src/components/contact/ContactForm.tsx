@@ -43,7 +43,7 @@ export default function ContactForm() {
         className="rounded-2xl border border-success/30 bg-green-50 p-8 text-center"
         role="status"
       >
-        <h2 className="text-xl font-semibold text-success">Teşekkürler!</h2>
+        <h2 className="heading-page-h2 text-success">Teşekkürler!</h2>
         <p className="mt-2 text-text-secondary">
           Mesajınız alındı. 1–2 iş günü içinde yanıt vereceğiz.
         </p>

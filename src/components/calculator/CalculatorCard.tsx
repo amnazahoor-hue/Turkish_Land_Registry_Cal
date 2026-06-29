@@ -16,12 +16,15 @@ type CalculatorCardProps = {
   compact?: boolean;
   /** Hero layout: larger card + preview panel before calculation */
   hero?: boolean;
+  /** Set false when anchor id is on a parent wrapper */
+  withAnchor?: boolean;
 };
 
 export default function CalculatorCard({
   className,
   compact = false,
   hero = false,
+  withAnchor = true,
 }: CalculatorCardProps) {
   const {
     inputValue,
@@ -55,16 +58,19 @@ export default function CalculatorCard({
     ) : null;
 
   const previewPanel = hero && !showResults && !isLoading ? (
-    <HeroCalculatorPreview />
+    <div className="hero-preview-panel max-sm:hidden">
+      <HeroCalculatorPreview />
+    </div>
   ) : null;
 
   return (
     <motion.div
-      id="calculator"
+      id={withAnchor ? "calculator" : undefined}
       className={cn(
-        "relative flex scroll-mt-24 flex-col overflow-hidden rounded-2xl border border-border bg-white saas-card-glow sm:rounded-3xl",
+        "relative flex flex-col overflow-hidden rounded-2xl border border-border bg-white saas-card-glow sm:rounded-3xl",
+        withAnchor && "scroll-mt-24",
         hero
-          ? "min-h-[26rem] p-5 shadow-xl shadow-primary/10 sm:min-h-[28rem] sm:p-6 lg:p-7"
+          ? "max-sm:max-h-none max-sm:overflow-visible max-h-[min(40rem,calc(100dvh-6.5rem))] overflow-y-auto px-4 py-2 shadow-xl shadow-primary/10 max-sm:px-3.5 sm:px-5 sm:py-2.5 lg:max-h-full lg:px-6 lg:py-3"
           : compact
             ? "max-h-[min(32rem,calc(100dvh-6.5rem))] p-4 sm:p-5"
             : "p-5 md:p-8",
@@ -79,15 +85,15 @@ export default function CalculatorCard({
       </div>
 
       {hero && (
-        <div className="mb-5 flex items-start gap-3 border-b border-border/70 pb-5">
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-md">
-            <Calculator size={22} strokeWidth={2} aria-hidden />
+        <div className="hero-calculator-header mb-2 flex items-start gap-2.5 border-b border-border/70 pb-2 max-sm:mb-1.5 max-sm:gap-2 max-sm:pb-1.5 lg:mb-2 lg:pb-2">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-md max-sm:h-9 max-sm:w-9 lg:h-10 lg:w-10">
+            <Calculator className="max-sm:scale-90" size={20} strokeWidth={2} aria-hidden />
           </span>
           <div className="min-w-0 text-left">
-            <p className="font-display text-lg font-bold tracking-tight text-primary sm:text-xl">
+            <p className="heading-page-h2 text-base max-sm:text-[0.9375rem] sm:text-lg">
               Tapu Harcı Hesaplayıcı
             </p>
-            <p className="mt-1 text-sm leading-relaxed text-text-secondary">
+            <p className="mt-0.5 text-xs leading-relaxed text-text-secondary max-sm:hidden sm:text-sm">
               Resmi %4 oranına göre alıcı ve satıcı paylarını anında görün.
             </p>
           </div>
@@ -96,7 +102,10 @@ export default function CalculatorCard({
 
       <form
         onSubmit={handleSubmit}
-        className={cn("shrink-0", compact || hero ? "space-y-4" : "space-y-5")}
+        className={cn(
+          "hero-calculator-form shrink-0",
+          compact || hero ? "space-y-4 max-sm:space-y-2.5" : "space-y-5"
+        )}
       >
         <div>
           <label
@@ -113,7 +122,8 @@ export default function CalculatorCard({
             }
             className={cn(
               "w-full rounded-xl border-2 border-border bg-surface px-4 py-3 text-sm font-medium text-primary transition-all duration-300 focus:border-secondary focus:outline-none focus:ring-4 focus:ring-secondary/15 sm:text-base",
-              compact && "py-2.5 text-sm"
+              compact && "py-2.5 text-sm",
+              hero && "max-sm:py-2 max-sm:text-xs"
             )}
           >
             <option value="from-sale-price">
@@ -152,7 +162,7 @@ export default function CalculatorCard({
               className={cn(
                 "w-full rounded-xl border-2 bg-surface px-4 text-center font-mono text-primary transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-secondary/15 sm:text-left",
                 hero
-                  ? "py-3.5 text-xl sm:text-2xl"
+                  ? "py-3.5 text-xl max-sm:py-2.5 max-sm:text-lg sm:text-2xl"
                   : compact
                     ? "py-3 text-lg sm:text-xl"
                     : "py-3.5 text-xl sm:text-2xl",
@@ -183,7 +193,7 @@ export default function CalculatorCard({
               type="submit"
               variant="primary"
               isLoading={isLoading}
-              className={cn("w-full", (compact || hero) && "px-4 py-3.5 text-sm sm:text-base")}
+              className={cn("w-full", (compact || hero) && "px-4 py-3.5 text-sm max-sm:py-2.5 max-sm:text-sm sm:text-base")}
             >
               Hesapla
             </Button>
@@ -229,7 +239,7 @@ export default function CalculatorCard({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3 }}
-            className="mt-4 flex-1"
+            className={cn("flex-1 min-h-0", hero ? "mt-2" : "mt-4")}
           >
             {previewPanel}
           </motion.div>
@@ -253,43 +263,43 @@ function HeroCalculatorPreview() {
   ];
 
   return (
-    <div className="space-y-4">
-      <div className="rounded-2xl border border-dashed border-border/90 bg-gradient-to-b from-surface/80 to-white p-4">
-        <p className="mb-3 text-center text-xs font-semibold uppercase tracking-wider text-text-secondary">
+    <div className="space-y-3 lg:space-y-2.5">
+      <div className="rounded-2xl border border-dashed border-border/90 bg-gradient-to-b from-surface/80 to-white p-3 sm:p-4">
+        <p className="mb-2 text-center text-[11px] font-semibold uppercase tracking-wider text-text-secondary sm:mb-3 sm:text-xs">
           Hesaplama özeti
         </p>
-        <dl className="space-y-2.5">
+        <dl className="space-y-2">
           {rows.map((row) => (
             <div
               key={row.label}
               className={cn(
-                "flex items-center justify-between gap-3 rounded-xl px-3 py-2.5",
+                "flex items-center justify-between gap-3 rounded-xl px-3 py-2",
                 row.highlight
                   ? "border border-accent/30 bg-orange-50/50"
                   : "bg-white/80"
               )}
             >
-              <dt className={cn("text-sm font-medium", row.color)}>
+              <dt className={cn("text-xs font-medium sm:text-sm", row.color)}>
                 {row.label}{" "}
                 <span className="text-text-secondary">({row.rate})</span>
               </dt>
-              <dd className="font-mono text-sm text-text-secondary/50">—</dd>
+              <dd className="font-mono text-xs text-text-secondary/50 sm:text-sm">—</dd>
             </div>
           ))}
         </dl>
-        <p className="mt-3 text-center text-[11px] leading-relaxed text-text-secondary">
+        <p className="mt-2 text-center text-[10px] leading-relaxed text-text-secondary sm:mt-3 sm:text-[11px]">
           Tutarı girip Hesapla&apos;ya basın — sonuçlar burada görünür.
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-3 gap-1.5 sm:gap-2 hero-preview-features">
         {features.map(({ icon: Icon, label }) => (
           <div
             key={label}
-            className="flex flex-col items-center gap-1.5 rounded-xl border border-border/70 bg-white px-2 py-3 text-center"
+            className="flex flex-col items-center gap-1 rounded-xl border border-border/70 bg-white px-1.5 py-2 text-center sm:gap-1.5 sm:px-2 sm:py-3"
           >
-            <Icon size={16} className="text-btn" aria-hidden />
-            <span className="text-[10px] font-semibold leading-tight text-text-primary sm:text-[11px]">
+            <Icon size={15} className="text-btn" aria-hidden />
+            <span className="text-[9px] font-semibold leading-tight text-text-primary sm:text-[11px]">
               {label}
             </span>
           </div>
@@ -383,8 +393,8 @@ function ConclusionResults({
     <div className={cn(compact ? "space-y-4" : "space-y-5")}>
       <h3
         className={cn(
-          "text-center font-display font-bold tracking-tight text-primary",
-          compact ? "text-xl" : "text-2xl sm:text-[1.75rem]"
+          "heading-h3 text-center",
+          compact && "text-xl sm:text-2xl md:text-2xl"
         )}
       >
         Sonuç

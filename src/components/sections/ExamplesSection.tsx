@@ -105,13 +105,13 @@ export default function ExamplesSection() {
 
       <div className="page-container relative">
         <ScrollReveal>
-          <article className="mx-auto max-w-3xl">
+          <article className="mx-auto w-full max-w-6xl">
             <div className="section-heading mb-8 md:mb-10">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm">
                 <Table2 size={14} aria-hidden />
                 Örnek hesaplamalar
               </span>
-              <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
+              <h2 className="mt-5 heading-h2-light">
                 Tapu Sicil Ücreti Hesaplama Örnekleri
               </h2>
               <p className="mt-4 text-base leading-relaxed text-blue-100/90 md:text-lg">
@@ -126,12 +126,13 @@ export default function ExamplesSection() {
               />
             </div>
 
-            <div className="space-y-10">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
               {examples.map((example) => (
-                <div key={example.title} className="space-y-4">
-                  <h3 className="font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
-                    {example.title}
-                  </h3>
+                <div
+                  key={example.title}
+                  className="h-full space-y-4 rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6"
+                >
+                  <h3 className="heading-h3-light">{example.title}</h3>
                   <div className="space-y-4 text-base leading-relaxed text-blue-100/85 md:text-lg">
                     {example.content}
                   </div>
@@ -139,7 +140,7 @@ export default function ExamplesSection() {
               ))}
             </div>
 
-            <div className="mt-12 overflow-x-auto rounded-2xl border border-white/10 bg-white/5">
+            <div className="mt-10 overflow-x-auto rounded-2xl border border-white/10 bg-white/5 md:mt-12">
               <table className="w-full min-w-[640px] border-collapse text-left text-sm md:text-base">
                 <thead>
                   <tr className="border-b border-white/10 bg-white/5">

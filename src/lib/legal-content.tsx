@@ -1,3 +1,6 @@
+import { ROUTES } from "@/lib/routes";
+import { SITE_EMAIL } from "@/lib/site";
+
 export function DisclaimerContent() {
   return (
     <>
@@ -63,7 +66,7 @@ export function PrivacyPolicyContent() {
       <h2>Veri Sorumlusu</h2>
       <p>
         TapuCalc, bu site üzerinden iletilen kişisel veriler için veri sorumlusudur.
-        İletişim: info@tapucalc.com veya web sitemizdeki iletişim formu.
+        İletişim: {SITE_EMAIL} veya web sitemizdeki iletişim formu.
       </p>
       <h2>Topladığımız Veriler</h2>
       <p>
@@ -93,7 +96,7 @@ export function PrivacyPolicyContent() {
       </p>
       <h2>Haklarınız</h2>
       <p>
-        info@tapucalc.com adresine yazarak kişisel verilerinize erişim, düzeltme,
+        {SITE_EMAIL} adresine yazarak kişisel verilerinize erişim, düzeltme,
         silme veya işlemenin kısıtlanmasını talep edebilirsiniz. Yasal süreler
         içinde yanıt verilir.
       </p>
@@ -230,10 +233,23 @@ export function AuthorContent() {
         bilgiler bilgilendirme amaçlıdır ve nihai kararlar için tapu müdürlüğü
         ile GİB kayıtları esas alınmalıdır.
       </p>
+      <h2>Yayınlanan İçerikler</h2>
+      <p>
+        TapuCalc ana sayfasındaki tapu harcı hesaplama rehberi, SSS bölümü ve
+        örnek tablolar benim denetimimden geçer. Her güncellemede 492 Sayılı
+        Harçlar Kanunu ve TKGM uygulamalarıyla uyum kontrol edilir.
+      </p>
+      <h2>Eğitim ve Deneyim</h2>
+      <p>
+        İstanbul Üniversitesi Hukuk Fakültesi mezunuyum. Gayrimenkul hukuku ve
+        vergi mevzuatı alanında on yılı aşkın süredir editörlük yapıyorum.
+        Konut alım-satım süreçlerinde tapu harçları, beyan değeri ve devir
+        maliyetleri üzerine yüzlerce rehber hazırladım.
+      </p>
       <h2>İletişim</h2>
       <p>
         İçerik önerileri veya düzeltme talepleri için{" "}
-        <a href="/contact">iletişim sayfamızı</a> kullanabilirsiniz.
+        <a href={ROUTES.contact}>iletişim sayfamızı</a> kullanabilirsiniz.
       </p>
     </>
   );

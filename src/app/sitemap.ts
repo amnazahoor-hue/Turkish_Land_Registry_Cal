@@ -1,14 +1,12 @@
 import type { MetadataRoute } from "next";
+import { ROUTES } from "@/lib/routes";
 import { SITE_URL } from "@/lib/site";
 
 const routes = [
-  { path: "", priority: 1, changeFrequency: "weekly" as const },
-  { path: "/about-us", priority: 0.8, changeFrequency: "monthly" as const },
-  { path: "/author", priority: 0.6, changeFrequency: "monthly" as const },
-  { path: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
-  { path: "/disclaimer", priority: 0.5, changeFrequency: "yearly" as const },
-  { path: "/privacy-policy", priority: 0.5, changeFrequency: "yearly" as const },
-  { path: "/terms-and-conditions", priority: 0.5, changeFrequency: "yearly" as const },
+  { path: ROUTES.home, priority: 1, changeFrequency: "weekly" as const },
+  { path: ROUTES.about, priority: 0.8, changeFrequency: "monthly" as const },
+  { path: ROUTES.author, priority: 0.6, changeFrequency: "monthly" as const },
+  { path: ROUTES.contact, priority: 0.7, changeFrequency: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

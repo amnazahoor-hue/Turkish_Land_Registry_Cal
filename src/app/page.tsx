@@ -4,7 +4,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageEntrance from "@/components/PageEntrance";
 import HeroSection from "@/components/sections/HeroSection";
-import { FAQJsonLd } from "@/components/seo/JsonLd";
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { ROUTES } from "@/lib/routes";
 import { createPageMetadata } from "@/lib/seo";
 import { siteMetadata } from "@/lib/site";
 
@@ -72,6 +73,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Ana Sayfa", path: ROUTES.home }]} />
       <FAQJsonLd />
       <Header />
       <PageEntrance>

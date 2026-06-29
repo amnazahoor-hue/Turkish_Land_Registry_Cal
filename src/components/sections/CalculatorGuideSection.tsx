@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ListOrdered } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { ROUTES } from "@/lib/routes";
 import { cn } from "@/lib/cn";
 
 const steps = [
@@ -195,7 +197,7 @@ function GuideDiagram({
           height={68}
         >
           <div
-            className="flex h-full items-center justify-center text-center font-display text-[14.5px] font-bold leading-snug tracking-tight text-primary xl:text-[15px]"
+            className="flex h-full items-center justify-center text-center heading-card text-primary xl:text-[0.9375rem]"
             aria-hidden
           >
             Tapu Sicil Ücreti Hesaplayıcısı Nasıl Kullanılır?
@@ -306,7 +308,7 @@ function GuideDesktopPanel() {
               >
                 <h3
                   className={cn(
-                    "min-h-[2.75rem] font-display text-sm font-bold leading-snug xl:text-[0.9375rem] transition-colors duration-300",
+                    "min-h-[2.75rem] heading-card xl:text-[0.9375rem] transition-colors duration-300",
                     isActive ? step.text : "text-primary"
                   )}
                 >
@@ -341,13 +343,20 @@ export default function CalculatorGuideSection() {
               <ListOrdered size={14} className="text-btn" aria-hidden />
               Kullanım rehberi
             </span>
-            <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-primary md:text-4xl lg:text-[2.75rem]">
+            <h2 className="mt-5 heading-h2">
               Tapu Sicil Ücreti Hesaplayıcısı Nasıl Kullanılır?
             </h2>
             <p className="mt-4 text-base leading-relaxed text-text-secondary md:text-lg">
-              Bu hesap makinesi, mülkünüzün değerini otomatik olarak hesaplar ve
-              toplam tutarı gösterir. Tapu kayıt ücretinizin doğru bir tahminini
-              almak için şu basit adımları izleyin.
+              Bu{" "}
+              <Link
+                href={ROUTES.about}
+                className="text-secondary underline-offset-2 hover:underline"
+              >
+                hesap makinesi
+              </Link>
+              , mülkünüzün değerini otomatik olarak hesaplar ve toplam tutarı
+              gösterir. Tapu kayıt ücretinizin doğru bir tahminini almak için
+              şu basit adımları izleyin.
             </p>
             <div
               className="mx-auto mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-transparent via-accent to-transparent"
@@ -373,7 +382,7 @@ export default function CalculatorGuideSection() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div className="space-y-2">
-                    <h3 className="font-display text-xl font-bold tracking-tight text-primary">
+                    <h3 className="heading-h3">
                       {step.title}
                     </h3>
                     <p className="text-base leading-relaxed text-text-secondary">

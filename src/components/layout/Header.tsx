@@ -6,7 +6,6 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { ArrowRight, Calculator, Menu, X } from "lucide-react";
 import { useState } from "react";
 import Logo from "@/components/ui/Logo";
-import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { navLinks } from "@/lib/constants";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -79,8 +78,8 @@ function HeaderContent({
             className="relative z-10 shrink-0 transition-opacity hover:opacity-90"
             aria-label="Ana sayfa"
           >
-            <Logo variant="light" mobile={false} className="hidden sm:flex" />
-            <Logo variant="light" mobile className="sm:hidden" />
+            <Logo variant="light" mobile={false} priority className="hidden sm:flex" />
+            <Logo variant="light" mobile priority className="sm:hidden" />
           </Link>
 
           <LayoutGroup id="main-nav">
@@ -100,7 +99,6 @@ function HeaderContent({
           </LayoutGroup>
 
           <div className="relative z-10 flex shrink-0 items-center gap-2 sm:gap-2.5">
-            <LanguageSwitcher />
             <Link
               href="/#calculator"
               className="group hidden items-center gap-2 rounded-full bg-gradient-to-r from-btn to-btn-hover px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-btn/35 transition-all hover:shadow-xl hover:shadow-btn/45 sm:inline-flex"

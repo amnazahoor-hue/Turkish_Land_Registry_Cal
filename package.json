@@ -8,7 +8,10 @@
     "dev:clean": "npm run clean && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "generate-og-image": "node scripts/generate-og-image.mjs",
+    "process-logo": "node scripts/process-logo.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -29,6 +32,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.35",
     "postcss": "^8",
+    "sharp": "^0.35.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

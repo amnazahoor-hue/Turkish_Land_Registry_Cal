@@ -112,7 +112,7 @@ function RisksPanel() {
                   <div className="min-w-0 flex-1 space-y-1.5">
                     <h3
                       className={cn(
-                        "font-display text-sm font-bold leading-snug transition-colors duration-300 md:text-base",
+                        "heading-card transition-colors duration-300 md:text-base",
                         isActive ? riskSegmentText[index] : "text-primary"
                       )}
                     >
@@ -155,7 +155,7 @@ export default function RisksSection() {
               <AlertTriangle size={14} aria-hidden />
               Riskler
             </span>
-            <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
+            <h2 className="mt-5 heading-h2-light">
               Gayrimenkul Değerini Düşük Göstermenin Riskleri
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-blue-100/90 md:text-lg">

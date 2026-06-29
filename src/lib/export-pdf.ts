@@ -1,5 +1,6 @@
 import type { TapuFeeResult } from "@/types";
 import { formatTRYForPdf } from "@/lib/formatters";
+import { SITE_DOMAIN } from "@/lib/site";
 
 const NAVY: [number, number, number] = [26, 60, 94];
 const BLUE: [number, number, number] = [45, 106, 159];
@@ -17,7 +18,7 @@ async function loadLogoPngDataUrl(): Promise<string | null> {
   try {
     const img = new Image();
     img.crossOrigin = "anonymous";
-    img.src = `${window.location.origin}/images/logo.webp`;
+    img.src = `${window.location.origin}/images/logo-transparent.webp`;
     await new Promise<void>((resolve, reject) => {
       img.onload = () => resolve();
       img.onerror = reject;
@@ -123,7 +124,7 @@ function drawLetterhead(
   doc.setFont("helvetica", "bold");
   doc.setFontSize(7);
   doc.setTextColor(...GOLD);
-  doc.text("tapucalc.com", pageW - innerX - 5, y + 12, { align: "right" });
+  doc.text(SITE_DOMAIN, pageW - innerX - 5, y + 12, { align: "right" });
 
   doc.setFont("helvetica", "normal");
   doc.setTextColor(200, 210, 220);
@@ -372,7 +373,7 @@ function drawFooter(doc: JsPDF, margin: number, pageW: number, pageH: number, do
   doc.setFont("helvetica", "normal");
   doc.setFontSize(6.5);
   doc.setTextColor(...MUTED);
-  doc.text("tapucalc.com  ·  Türkiye Gayrimenkul Araçları  ·  Ücretsiz Tapu Harcı Hesaplama", innerX, y + 6);
+  doc.text(`${SITE_DOMAIN}  ·  Türkiye Gayrimenkul Araçları  ·  Ücretsiz Tapu Harcı Hesaplama`, innerX, y + 6);
 
   doc.setFontSize(6);
   doc.text(`Belge referansı: ${documentId}`, innerX, y + 10);

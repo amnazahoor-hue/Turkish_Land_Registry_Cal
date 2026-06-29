@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { BookOpen, Landmark, Scale } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { cn } from "@/lib/cn";
@@ -9,9 +10,11 @@ const steps = [
     icon: Landmark,
     title: null as string | null,
     nodeGradient: "from-secondary to-primary",
-    ringClass: "ring-secondary/20",
     titleClass: "text-secondary",
-    bodyTint: "from-secondary/[0.04] to-transparent",
+    bodyTint: "from-secondary/[0.06] via-secondary/[0.02] to-transparent",
+    accentBar: "from-secondary via-primary/80 to-secondary/40",
+    illustration: "/images/info-registry-visual.webp",
+    illustrationAlt: "Tapu kayıt ücreti — tapu sicil ve resmi oran illüstrasyonu",
     body: (
       <>
         <p className="text-[1.0625rem] font-medium leading-relaxed text-primary/90 md:text-lg">
@@ -35,9 +38,12 @@ const steps = [
     icon: Scale,
     title: "Tapu Sicil Harcı ile Emlak Vergisi Arasındaki Fark",
     nodeGradient: "from-btn to-accent",
-    ringClass: "ring-btn/20",
     titleClass: "text-btn",
-    bodyTint: "from-btn/[0.04] to-transparent",
+    bodyTint: "from-btn/[0.06] via-accent/[0.03] to-transparent",
+    accentBar: "from-btn via-accent to-btn/40",
+    illustration: "/images/info-tax-compare-visual.webp",
+    illustrationAlt:
+      "Tapu sicil harcı ile emlak vergisi karşılaştırması illüstrasyonu",
     body: (
       <p>
         Tapu sicil ücreti, mülkiyet el değiştirdiğinde bir defaya mahsus
@@ -51,95 +57,96 @@ const steps = [
 
 function InfoTimelinePanel() {
   return (
-    <div className="overflow-hidden rounded-3xl border border-primary/[0.08] bg-white shadow-[0_16px_48px_rgba(26,60,94,0.1)]">
+    <div className="overflow-hidden rounded-3xl border border-primary/[0.08] bg-white/95 shadow-[0_20px_56px_rgba(26,60,94,0.11)] backdrop-blur-sm">
       <div
         className="h-1.5 w-full bg-gradient-to-r from-secondary via-accent to-btn"
         aria-hidden
       />
 
-      <div className="relative px-5 py-6 sm:px-7 sm:py-8 lg:px-9 lg:py-9">
+      <div className="relative px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-9">
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-secondary/[0.04] to-transparent"
+          className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/10 blur-3xl"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-secondary/10 blur-3xl"
           aria-hidden
         />
 
-        <div className="relative">
-          <div
-            className="absolute bottom-6 left-[1.4375rem] top-6 hidden w-0.5 bg-gradient-to-b from-secondary/50 via-border to-btn/50 sm:block"
-            aria-hidden
-          />
+        <div className="relative grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-6 lg:gap-7">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
 
-          <div className="space-y-6 sm:space-y-7">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              const isLast = index === steps.length - 1;
+            return (
+              <article
+                key={index}
+                className="group relative flex flex-col self-start overflow-hidden rounded-2xl border border-border/60 bg-white shadow-[0_8px_30px_rgba(26,60,94,0.07)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/15 hover:shadow-[0_16px_40px_rgba(26,60,94,0.1)]"
+              >
+                <div
+                  className={cn(
+                    "h-1 w-full bg-gradient-to-r",
+                    step.accentBar
+                  )}
+                  aria-hidden
+                />
 
-              return (
-                <article
-                  key={index}
-                  className="group relative flex flex-col gap-4 sm:flex-row sm:gap-6"
+                <div
+                  className={cn(
+                    "relative flex items-start gap-3 border-b border-border/40 bg-gradient-to-br px-5 py-4 sm:px-6",
+                    step.bodyTint
+                  )}
                 >
-                  <div className="relative z-10 flex shrink-0 items-center gap-3 sm:w-[4.5rem] sm:flex-col sm:gap-0">
-                    <div
-                      className={cn(
-                        "relative flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-[0_8px_20px_rgba(26,60,94,0.18)] ring-4 ring-white transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14",
-                        step.nodeGradient
-                      )}
-                    >
-                      <Icon size={22} strokeWidth={1.65} aria-hidden />
-                      <span
-                        className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-white font-mono text-[8px] font-bold text-primary shadow-sm"
-                        aria-hidden
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                    {step.title ? (
-                      <h3 className="font-display text-base font-bold leading-snug text-btn sm:hidden">
-                        {step.title}
-                      </h3>
-                    ) : null}
-                  </div>
-
                   <div
                     className={cn(
-                      "min-w-0 flex-1 rounded-2xl border border-border/50 bg-gradient-to-br p-5 transition-[border-color,box-shadow] duration-300 sm:p-6",
-                      step.bodyTint,
-                      step.ringClass,
-                      "group-hover:border-border group-hover:shadow-[0_8px_24px_rgba(26,60,94,0.06)]"
+                      "relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-[0_8px_20px_rgba(26,60,94,0.2)] ring-4 ring-white transition-transform duration-300 group-hover:scale-105",
+                      step.nodeGradient
                     )}
                   >
-                    {step.title ? (
-                      <h3
-                        className={cn(
-                          "mb-3 hidden font-display text-xl font-bold leading-snug sm:block",
-                          step.titleClass
-                        )}
-                      >
-                        {step.title}
-                      </h3>
-                    ) : null}
-
-                    <div
-                      className={cn(
-                        "text-base leading-relaxed text-text-secondary md:text-[1.0625rem] md:leading-relaxed",
-                        !step.title && "space-y-4"
-                      )}
+                    <Icon size={22} strokeWidth={1.65} aria-hidden />
+                    <span
+                      className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-white font-mono text-[8px] font-bold text-primary shadow-sm"
+                      aria-hidden
                     >
-                      {step.body}
-                    </div>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
 
-                  {!isLast ? (
-                    <div
-                      className="ml-[1.4375rem] h-px w-12 bg-gradient-to-r from-secondary/30 to-transparent sm:hidden"
-                      aria-hidden
-                    />
-                  ) : null}
-                </article>
-              );
-            })}
-          </div>
+                  {step.title ? (
+                    <h3 className={cn("heading-card min-w-0 pt-0.5", step.titleClass)}>
+                      {step.title}
+                    </h3>
+                  ) : (
+                    <p className="pt-1 text-sm font-semibold text-primary/85 sm:text-base">
+                      Tapu kayıt ücreti
+                    </p>
+                  )}
+                </div>
+
+                <div className="px-5 py-5 sm:px-6 sm:py-6">
+                  <div
+                    className={cn(
+                      "text-base leading-relaxed text-text-secondary md:text-[1.0625rem] md:leading-relaxed",
+                      !step.title && "space-y-4"
+                    )}
+                  >
+                    {step.body}
+                  </div>
+                </div>
+
+                <div className="border-t border-border/40 bg-gradient-to-b from-surface/40 to-white px-4 pb-4 pt-3 sm:px-5 sm:pb-5">
+                  <Image
+                    src={step.illustration}
+                    alt={step.illustrationAlt}
+                    title={step.illustrationAlt}
+                    width={360}
+                    height={index === 0 ? 120 : 160}
+                    loading="lazy"
+                    className="h-auto w-full rounded-xl opacity-95 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
 
@@ -177,7 +184,7 @@ export default function InfoCardsSection() {
               <BookOpen size={14} className="text-btn" aria-hidden />
               Temel bilgiler
             </span>
-            <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-primary md:text-4xl lg:text-[2.75rem]">
+            <h2 className="mt-5 heading-h2">
               Tapu Sicil Müdürlüğü Ücreti Nedir?
             </h2>
             <div
@@ -186,7 +193,7 @@ export default function InfoCardsSection() {
             />
           </div>
 
-          <div className="relative mx-auto max-w-3xl">
+          <div className="relative mx-auto w-full max-w-6xl">
             <InfoTimelinePanel />
           </div>
         </ScrollReveal>

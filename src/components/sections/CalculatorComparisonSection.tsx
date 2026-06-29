@@ -95,7 +95,7 @@ function ComparisonColumn({
             <FileWarning size={20} strokeWidth={1.75} aria-hidden />
           )}
         </span>
-        <h3 className="font-display text-lg font-bold leading-snug text-white sm:text-xl">
+        <h3 className="heading-card text-white sm:text-xl">
           {title}
         </h3>
       </div>
@@ -150,7 +150,7 @@ export default function CalculatorComparisonSection() {
                 <Scale size={14} className="text-btn" aria-hidden />
                 Karşılaştırma
               </span>
-              <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-primary md:text-4xl lg:text-[2.75rem]">
+              <h2 className="mt-5 heading-h2">
                 Tapu Sicil Ücreti Hesaplayıcısı vs. Manuel Hesaplama
               </h2>
               <div

@@ -7,14 +7,14 @@ export function buildResultSummary(
   salePriceLabel: string
 ): string {
   return [
-    "TapuCalc — Title Deed Fee Estimate",
+    "TapuCalc — Tapu Harcı Tahmini",
     "",
-    `Property Sale Price: ${salePriceLabel}`,
-    `Buyer Fee (2%): ${formatTRY(result.buyerFee)}`,
-    `Seller Fee (2%): ${formatTRY(result.sellerFee)}`,
-    `Total Fee (4%): ${formatTRY(result.totalFee)}`,
+    `Mülk Satış Fiyatı: ${salePriceLabel}`,
+    `Alıcı Harcı (%2): ${formatTRY(result.buyerFee)}`,
+    `Satıcı Harcı (%2): ${formatTRY(result.sellerFee)}`,
+    `Toplam Harç (%4): ${formatTRY(result.totalFee)}`,
     "",
-    "Official 4% rate (2% buyer + 2% seller). Confirm with your land registry office before paying.",
+    "Resmi %4 oran (%2 alıcı + %2 satıcı). Ödemeden önce tapu müdürlüğünüzle teyit edin.",
     SITE_URL,
   ].join("\n");
 }

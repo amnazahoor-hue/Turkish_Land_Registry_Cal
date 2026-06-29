@@ -44,13 +44,13 @@ export default function PaymentSection() {
 
       <div className="page-container relative">
         <ScrollReveal>
-          <article className="mx-auto max-w-3xl">
+          <article className="mx-auto w-full max-w-6xl">
             <div className="section-heading mb-8 md:mb-10">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm">
                 <CreditCard size={14} aria-hidden />
                 Ödeme yöntemleri
               </span>
-              <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
+              <h2 className="mt-5 heading-h2-light">
                 Tapu Sicil Ücretleri Nasıl Ödenir?
               </h2>
               <p className="mt-4 text-base leading-relaxed text-blue-100/90 md:text-lg">
@@ -63,12 +63,13 @@ export default function PaymentSection() {
               />
             </div>
 
-            <div className="space-y-8">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
               {paymentMethods.map((method) => (
-                <div key={method.title} className="space-y-3">
-                  <h3 className="font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
-                    {method.title}
-                  </h3>
+                <div
+                  key={method.title}
+                  className="h-full space-y-3 rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6"
+                >
+                  <h3 className="heading-h3-light">{method.title}</h3>
                   <p className="text-base leading-relaxed text-blue-100/85 md:text-lg">
                     {method.description}
                   </p>

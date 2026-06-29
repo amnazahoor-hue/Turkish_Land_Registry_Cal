@@ -41,7 +41,7 @@ export default function CTABanner() {
       <div className="page-container relative text-center">
         <ScrollReveal>
           <motion.h2
-            className="font-display text-2xl font-bold text-white md:text-4xl"
+            className="heading-h2-light"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

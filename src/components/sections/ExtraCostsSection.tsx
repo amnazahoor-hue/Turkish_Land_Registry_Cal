@@ -131,7 +131,7 @@ function FeaturedCostCard({
           <div className="min-w-0 flex-1 border-t border-border/50 px-5 py-5 sm:border-l-[4px] sm:border-t-0 sm:border-l-secondary sm:px-6 sm:py-6">
             <h3
               className={cn(
-                "font-display text-lg font-bold leading-snug sm:text-xl",
+                "heading-card sm:text-xl",
                 cost.text
               )}
             >
@@ -217,7 +217,7 @@ function CompactCostCard({
         <div className="relative -mt-4 flex flex-col rounded-t-2xl border-t border-border/40 bg-white px-5 pb-5 pt-4">
           <h3
             className={cn(
-              "font-display text-base font-bold leading-snug",
+              "heading-card",
               cost.text
             )}
           >
@@ -319,7 +319,7 @@ export default function ExtraCostsSection() {
               <Receipt size={14} aria-hidden />
               Ek masraflar
             </span>
-            <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
+            <h2 className="mt-5 heading-h2-light">
               Mülk Transferinde Ek Maliyetler
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-blue-100/90 md:text-lg">

@@ -19,9 +19,11 @@ export default function LowerValueSection() {
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
-          src="/images/lower-value-background.png"
-          alt=""
+          src="/images/lower-value-background.webp"
+          alt="Tapu harcı beyan değeri ve yasal uyarı arka plan görseli"
+          title="Tapu harcı beyan değeri ve yasal uyarı arka plan görseli"
           fill
+          loading="lazy"
           sizes="100vw"
           className="object-cover object-center opacity-[0.48] sm:opacity-[0.44] lg:opacity-40"
         />
@@ -38,7 +40,7 @@ export default function LowerValueSection() {
                 <ShieldAlert size={14} className="text-btn" aria-hidden />
                 Yasal uyarı
               </span>
-              <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-primary md:text-4xl lg:text-[2.75rem]">
+              <h2 className="mt-5 heading-h2">
                 Tapu kayıt Ücretleri Daha Düşük Bir Gayrimenkul Değeri Üzerinden
                 Hesaplanabilir Mi?
               </h2>

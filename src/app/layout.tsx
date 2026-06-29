@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import { OrganizationJsonLd } from "@/components/seo/JsonLd";
 import { SITE_NAME } from "@/lib/constants";
-import { SITE_URL, siteMetadata } from "@/lib/site";
+import { OG_IMAGE_PATH, SITE_URL, siteMetadata } from "@/lib/site";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-image.svg",
+        url: OG_IMAGE_PATH,
         width: 1200,
         height: 630,
         alt: siteMetadata.title,
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteMetadata.title,
     description: siteMetadata.description,
-    images: ["/images/og-image.svg"],
+    images: [OG_IMAGE_PATH],
   },
   robots: {
     index: true,
@@ -71,8 +71,9 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: { canonical: SITE_URL },
-  other: {
-    google: "notranslate",
+  icons: {
+    icon: "/images/logo-transparent.webp",
+    apple: "/images/logo-transparent.webp",
   },
 };
 

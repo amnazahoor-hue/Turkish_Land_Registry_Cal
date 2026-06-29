@@ -1,25 +1,35 @@
 "use client";
 
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { cn } from "@/lib/cn";
 
 const items = [
-  "Official 4% Rate",
-  "Buyer 2%",
-  "Seller 2%",
-  "Free Calculator",
-  "Instant Results",
-  "Turkey Property",
-  "Title Deed Fees",
+  "Resmi %4 Oran",
+  "Alıcı %2",
+  "Satıcı %2",
+  "Ücretsiz Hesaplayıcı",
+  "Anında Sonuç",
+  "Türkiye Gayrimenkul",
+  "Tapu Harçları",
   "TapuCalc",
 ];
 
-export default function MarqueeStrip() {
+type MarqueeStripProps = {
+  className?: string;
+};
+
+export default function MarqueeStrip({ className }: MarqueeStripProps) {
   const reducedMotion = useReducedMotion();
   const doubled = [...items, ...items];
 
   if (reducedMotion) {
     return (
-      <div className="flex flex-wrap justify-center gap-4 border-y border-border/60 bg-white/50 py-4">
+      <div
+        className={cn(
+          "flex flex-wrap justify-center gap-4 border-y border-border/60 bg-white/50 py-4",
+          className
+        )}
+      >
         {items.map((item) => (
           <span
             key={item}
@@ -33,7 +43,12 @@ export default function MarqueeStrip() {
   }
 
   return (
-    <div className="relative overflow-hidden border-y border-border/60 bg-white/60 py-4 backdrop-blur-sm">
+    <div
+      className={cn(
+        "relative overflow-hidden border-y border-border/60 bg-white/60 py-4 backdrop-blur-sm",
+        className
+      )}
+    >
       <div className="animate-marquee flex w-max gap-10 whitespace-nowrap px-4">
         {doubled.map((item, i) => (
           <span
